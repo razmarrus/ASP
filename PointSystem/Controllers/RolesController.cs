@@ -40,7 +40,7 @@ namespace PointSystem.Controllers
             }
             return View(name);
         }
-
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {
@@ -54,6 +54,7 @@ namespace PointSystem.Controllers
 
         public IActionResult UserList() => View(_userManager.Users.ToList());
 
+        //[Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(string userId)
         {
             // получаем пользователя
@@ -75,6 +76,7 @@ namespace PointSystem.Controllers
 
             return NotFound();
         }
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Edit(string userId, List<string> roles)
         {

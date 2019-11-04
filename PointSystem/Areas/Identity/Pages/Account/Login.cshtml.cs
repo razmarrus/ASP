@@ -21,16 +21,16 @@ namespace PointSystem.Areas.Identity.Pages.Account
         private readonly UserManager<AspNetUser> _userManager;
         private readonly SignInManager<AspNetUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-        private readonly IEmailSender _emailSender;
+        //private readonly IEmailSender _emailSender;
 
         public LoginModel(SignInManager<AspNetUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<AspNetUser> userManager,
-            IEmailSender emailSender)
+            UserManager<AspNetUser> userManager)//,
+            //IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _emailSender = emailSender;
+           // _emailSender = emailSender;
             _logger = logger;
         }
 
@@ -129,10 +129,10 @@ namespace PointSystem.Areas.Identity.Pages.Account
                 pageHandler: null,
                 values: new { userId = userId, code = code },
                 protocol: Request.Scheme);
-            await _emailSender.SendEmailAsync(
-                Input.Email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+            //await _emailSender.SendEmailAsync(
+            //    Input.Email,
+            //    "Confirm your email",
+            //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
             ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
             return Page();

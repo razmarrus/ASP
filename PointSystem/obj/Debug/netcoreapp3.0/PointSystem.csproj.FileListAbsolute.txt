@@ -185,3 +185,15 @@ C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\De
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Users\Edit.cshtml.g.cs
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Users\Details.cshtml.g.cs
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Users\Index.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Feasts\Create.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Feasts\Delete.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Feasts\Details.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Feasts\Edit.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Feasts\Index.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\RegistrationFeasts\Create.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\RegistrationFeasts\Delete.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\RegistrationFeasts\Details.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\RegistrationFeasts\Edit.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\RegistrationFeasts\Index.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Home\_UselessGetMessage.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Proposals\Consider.cshtml.g.cs

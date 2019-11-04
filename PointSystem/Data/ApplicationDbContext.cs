@@ -22,9 +22,21 @@ namespace PointSystem.Data
                 .HasOne<AspNetUser>(s => s.AspNetUser)
                 .WithMany(g => g.Proposals)
                 .HasForeignKey(s => s.AspNetUserId);
+
+            modelBuilder.Entity<RegistrationFeast>()
+                .HasOne<AspNetUser>(s => s.AspNetUser)
+                .WithMany(g => g.RegistrationFeasts)
+                .HasForeignKey(s => s.AspNetUserId);
+
+            modelBuilder.Entity<RegistrationFeast>()
+                .HasOne<Feast>(s => s.Feast)
+                .WithMany(g => g.RegistrationFeasts)
+                .HasForeignKey(s => s.FeastId);
         }
 
         public DbSet<AspNetUser> AspNetUsers { get; set; }
         public DbSet<Proposal> Proposals { get; set; }
+        public DbSet<Feast> Feasts { get; set; }
+        public DbSet<RegistrationFeast> RegistrationFeasts { get; set; }
     }
 }

@@ -13,8 +13,8 @@ using PointSystem.Models;
 
 namespace GimmeTheLoot.Controllers
 {
-    [Authorize(Roles = "admin")]
-    [ViewComponent]
+
+    //[ViewComponent]
     public class UsersController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -30,6 +30,7 @@ namespace GimmeTheLoot.Controllers
             return View(await _context.AspNetUsers.ToListAsync());
         }
 
+        [Authorize(Roles = "admin")]
         // GET: Users/Details/5
         public async Task<IActionResult> Details(string id)
         {

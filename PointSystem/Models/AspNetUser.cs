@@ -9,5 +9,6 @@ namespace PointSystem.Models
     public class AspNetUser : IdentityUser
     {
         public ICollection<Proposal> Proposals { get; set; }
+        public ICollection<RegistrationFeast> RegistrationFeasts { get; set; }
     }
 }
