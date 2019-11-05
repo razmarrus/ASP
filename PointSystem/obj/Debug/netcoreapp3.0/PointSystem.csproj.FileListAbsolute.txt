@@ -197,3 +197,4 @@ C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\De
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\RegistrationFeasts\Index.cshtml.g.cs
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Home\_UselessGetMessage.cshtml.g.cs
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Proposals\Consider.cshtml.g.cs
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\RegistrationFeasts\Consider.cshtml.g.cs

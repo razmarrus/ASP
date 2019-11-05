@@ -6,7 +6,7 @@
 
 <h1>Create</h1>
 
-<h4>Proposal</h4>
+<h4>Creating new proposal</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,14 +14,15 @@
         <input hidden value="@User.Identity.Name" id="qwe">
 
         <form asp-action="Create">
+            <input type="hidden" value="processing" name="Status" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="StartTime" class="control-label"></label>
+                <label asp-for="StartTime" class="control-label">Starting time (in format 01.01.2001 0:00:00)</label>
                 <input asp-for="StartTime" class="form-control" />
                 <span asp-validation-for="StartTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EndTime" class="control-label"></label>
+                <label asp-for="EndTime" class="control-label">Ending Time</label>
                 <input asp-for="EndTime" class="form-control" />
                 <span asp-validation-for="EndTime" class="text-danger"></span>
             </div>
@@ -32,8 +33,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
-                <span asp-validation-for="Content" class="text-danger"></span>
+                <select name="Content">
+                    <option value="Concert">Concert</option>
+                    <option value="Academic music">Academic music</option>
+                    <option value="Flashmob">Flashmob</option>
+                    <option value="Theatrical performance">Theatrical performance</option>
+                    <option value="Living statues">Living statues</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Point" class="control-label"></label>
@@ -41,18 +48,13 @@
                 <span asp-validation-for="Point" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MaxPeople" class="control-label"></label>
+                <label asp-for="MaxPeople" class="control-label">Maximum number of people expected</label>
                 <input asp-for="MaxPeople" class="form-control" />
                 <span asp-validation-for="MaxPeople" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="AspNetUserId" class="control-label"></label>
-                <select asp-for="AspNetUserId" class ="form-control" asp-items="ViewBag.AspNetUserId"></select>
+                <select asp-for="AspNetUserId" class="form-control" asp-items="ViewBag.AspNetUserId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

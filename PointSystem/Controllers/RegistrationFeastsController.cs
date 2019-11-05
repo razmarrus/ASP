@@ -76,28 +76,67 @@ namespace PointSystem.Controllers
             return View(registrationFeast);
         }
 
- /*       public async Task<IActionResult> Follow(int? id)
+
+        public async Task<IActionResult> Consider(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var registrationFeast = await _context.RegistrationFeasts.FindAsync(id);
+            //var registrationFeast = await _context.RegistrationFeasts.FindAsync(id);
+            var registrationFeast = await _context.RegistrationFeasts
+                .Include(r => r.AspNetUser)
+                .Include(r => r.Feast)
+                .FirstOrDefaultAsync(m => m.id == id);
+
             if (registrationFeast == null)
             {
                 return NotFound();
             }
-
             ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id", registrationFeast.AspNetUserId);
             ViewData["FeastId"] = new SelectList(_context.Feasts, "id", "id", registrationFeast.FeastId);
-            //return View(registrationFeast);
-            return "Your following, " + order.User + ", !";
+            return View(registrationFeast);
         }
-*/
 
-        //[Authorize(Roles = "admin")]
-        // GET: RegistrationFeasts/Edit/5
+        // POST: RegistrationFeasts/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        //        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> Consider(int id, [Bind("id,StartTime,EndTime,Content,Point,Status,AspNetUserId,FeastId")] RegistrationFeast registrationFeast)
+        {
+            if (id != registrationFeast.id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(registrationFeast);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!RegistrationFeastExists(registrationFeast.id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id", registrationFeast.AspNetUserId);
+            ViewData["FeastId"] = new SelectList(_context.Feasts, "id", "id", registrationFeast.FeastId);
+            return View(registrationFeast);
+        }
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
