@@ -11,10 +11,12 @@
 <div class="row">
     <div class="col-md-4">
 
-        <input hidden value="@User.Identity.Name" id="qwe">
+        <input value="@User.Identity.Name" id="qwe">
+
 
         <form asp-action="Create">
             <input type="hidden" value="processing" name="Status" />
+            <!--<input value="@ViewBag.Uid" name="AspNetUserId">-->
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="StartTime" class="control-label">Starting time (in format 01.01.2001 0:00:00)</label>
@@ -52,10 +54,11 @@
                 <input asp-for="MaxPeople" class="form-control" />
                 <span asp-validation-for="MaxPeople" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="AspNetUserId" class="control-label"></label>
-                <select asp-for="AspNetUserId" class="form-control" asp-items="ViewBag.AspNetUserId"></select>
-            </div>
+            <!--<div class="form-group">
+        <label asp-for="AspNetUserId" class="control-label"></label>
+        <select asp-for="AspNetUserId" class="form-control" asp-items="ViewBag.AspNetUserId"></select>
+    </div>-->
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

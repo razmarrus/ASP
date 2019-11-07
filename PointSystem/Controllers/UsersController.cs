@@ -10,14 +10,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using PointSystem.Data;
 using PointSystem.Models;
+using Microsoft.AspNetCore.Identity;
 
-namespace GimmeTheLoot.Controllers
+namespace PointSystem.Controllers
 {
 
     //[ViewComponent]
     public class UsersController : Controller
     {
         private readonly ApplicationDbContext _context;
+        UserManager<AspNetUser> _userManager;
 
         public UsersController(ApplicationDbContext context)
         {
@@ -50,6 +52,7 @@ namespace GimmeTheLoot.Controllers
         }
 
         // GET: Users/Edit/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -101,6 +104,7 @@ namespace GimmeTheLoot.Controllers
         }
 
         // GET: Users/Delete/5
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)

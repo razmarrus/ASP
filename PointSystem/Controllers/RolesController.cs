@@ -19,8 +19,12 @@ namespace PointSystem.Controllers
         }
         public IActionResult Index() => View(_roleManager.Roles.ToList());
 
+
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
         public IActionResult Create() => View();
         [HttpPost]
+
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
         public async Task<IActionResult> Create(string name)
         {
             if (!string.IsNullOrEmpty(name))
@@ -52,9 +56,12 @@ namespace PointSystem.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
         public IActionResult UserList() => View(_userManager.Users.ToList());
 
-        //[Authorize(Roles = "admin")]
+
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(string userId)
         {
             // получаем пользователя
@@ -76,7 +83,8 @@ namespace PointSystem.Controllers
 
             return NotFound();
         }
-        //[Authorize(Roles = "admin")]
+
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Edit(string userId, List<string> roles)
         {

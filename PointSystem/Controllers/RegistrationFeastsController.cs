@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -50,11 +51,15 @@ namespace PointSystem.Controllers
         //[Authorize(Roles = "admin")]
         public IActionResult Create(int id)
         {
-            ViewBag.Fid = id;
-            ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id");
-            ViewData["FeastId"] = new SelectList(_context.Feasts, "id", "id");
-            //ViewData["Topic"] = new SelectList(_context.Feasts, "Topic", "Topic");
-            return View();
+            if (User.Identity.IsAuthenticated) //UnauthorizedResult
+            {
+                ViewBag.Fid = id;
+                ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id");
+                ViewData["FeastId"] = new SelectList(_context.Feasts, "id", "id");
+                //ViewData["Topic"] = new SelectList(_context.Feasts, "Topic", "Topic");
+                return View();
+            }
+            else return NotFound();
         }
 
         // POST: RegistrationFeasts/Create
@@ -67,6 +72,10 @@ namespace PointSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                ClaimsPrincipal currentUser = this.User;
+                var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                registrationFeast.AspNetUserId = currentUserID;
+
                 _context.Add(registrationFeast);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -77,6 +86,7 @@ namespace PointSystem.Controllers
         }
 
 
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
         public async Task<IActionResult> Consider(int? id)
         {
             if (id == null)
@@ -149,9 +159,15 @@ namespace PointSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id", registrationFeast.AspNetUserId);
-            ViewData["FeastId"] = new SelectList(_context.Feasts, "id", "id", registrationFeast.FeastId);
-            return View(registrationFeast);
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            if (registrationFeast.AspNetUserId == currentUserID)
+            { 
+                ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id", registrationFeast.AspNetUserId);
+                ViewData["FeastId"] = new SelectList(_context.Feasts, "id", "id", registrationFeast.FeastId);
+                return View(registrationFeast);
+            }
+            else return NotFound();
         }
 
         // POST: RegistrationFeasts/Edit/5
@@ -209,8 +225,11 @@ namespace PointSystem.Controllers
             {
                 return NotFound();
             }
-
-            return View(registrationFeast);
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            if (registrationFeast.AspNetUserId == currentUserID)
+                return View(registrationFeast);
+            else return NotFound();
         }
 
         // POST: RegistrationFeasts/Delete/5

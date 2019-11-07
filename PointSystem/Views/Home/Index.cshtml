@@ -7,3 +7,7 @@
     <p>Let's start working. You can choose points in <a href="http://classic.battle.net/diablo2exp/maps/act3.shtml"> map of Minsk</a>.</p>
 </div>
 @Html.Partial("_UselessGetMessage")
+@if (User.Identity.IsAuthenticated) 
+{ 
+    @await Component.InvokeAsync("UsersPropComponent", new { currentUserID = ViewData["Id"] })
+}

@@ -1,17 +1,13 @@
 ﻿@model IEnumerable<PointSystem.Models.Proposal>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Status";
 }
 
-<h1>List of proposals</h1>
+<h1>Status</h1>
 
 <p>
-    @if (User.Identity.IsAuthenticated)
-    {
-        <a asp-action="Create">Create New </a>
-        <a asp-action="Status">| Check status</a>
-    }
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -45,6 +41,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+    @if( ViewBag.Fid == item.AspNetUserId) { 
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.StartTime)
@@ -71,19 +68,12 @@
                 @Html.DisplayFor(modelItem => item.AspNetUser.Id)
             </td>
             <td>
-
-                <a asp-action="Details" asp-route-id="@item.id">Details</a>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <a asp-action="Delete" asp-route-id="@item.id"> | Delete |</a>
-                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> 
-}
-                @if (ViewContext.HttpContext.User.IsInRole("admin"))
-                {
-                    <a asp-action="Consider" asp-route-id="@item.id"> | Consider</a>
-                }
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
+    }
 }
     </tbody>
 </table>

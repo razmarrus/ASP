@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PointSystem.Data;
 using PointSystem.Models;
+//using Microsoft.AspNetCore.Identity.IdentityExtensions;
+using System.Security.Claims;
+//using ControllersApp.Util;
+using Microsoft.AspNetCore.Http;
+
 
 namespace PointSystem.Controllers
 {
@@ -14,13 +20,18 @@ namespace PointSystem.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public ProposalsController(ApplicationDbContext context)
+        UserManager<AspNetUser> _userManager;
+  
+
+        private Task<AspNetUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
+        public ProposalsController(ApplicationDbContext context, UserManager<AspNetUser> manager)
         {
             _context = context;
+            _userManager = manager;
         }
 
         
-
         // GET: Proposals
         public async Task<IActionResult> Index()
         {
@@ -49,13 +60,21 @@ namespace PointSystem.Controllers
             return View(proposal);
         }
 
+
         // GET: Proposals/Create
         public IActionResult Create()
         {
-            ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id");
-            return View();
+            if (User.Identity.IsAuthenticated) //UnauthorizedResult
+            {
+                //ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id", registrationFeast.AspNetUserId);
+                ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id");
+                return View();
+            }
+            //else return View("~/Views/Wherever/SomeDir/MyView.aspx")
+            else return new UnauthorizedResult();
+            //else return new HtmlResult("<h2>Привет ASP.NET Core</h2>");
         }
-
+ 
         // POST: Proposals/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -65,6 +84,10 @@ namespace PointSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                ClaimsPrincipal currentUser = this.User;
+                var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                proposal.AspNetUserId = currentUserID;
+
                 _context.Add(proposal);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -86,8 +109,13 @@ namespace PointSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id", proposal.AspNetUserId);
-            return View(proposal);
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            if (proposal.AspNetUserId == currentUserID) { 
+                ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id", proposal.AspNetUserId);
+                return View(proposal);
+            }
+            else return NotFound();
         }
 
         // POST: Proposals/Edit/5
@@ -127,7 +155,7 @@ namespace PointSystem.Controllers
         }
 
 
-
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
         public async Task<IActionResult> Consider(int? id)
         {
             if (id == null)
@@ -200,8 +228,12 @@ namespace PointSystem.Controllers
             {
                 return NotFound();
             }
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            if (proposal.AspNetUserId == currentUserID)
+                return View(proposal);
+            else return NotFound();
 
-            return View(proposal);
         }
 
         // POST: Proposals/Delete/5
@@ -213,6 +245,20 @@ namespace PointSystem.Controllers
             _context.Proposals.Remove(proposal);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+
+        public async Task<IActionResult> Status()
+        {
+            //_context.Users.Where(f => f.Email =="qwe").First();
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            var applicationDbContext = _context.Proposals.Include(p => p.AspNetUser);
+            ViewBag.Fid = currentUserID;
+            ViewData["Id"] = currentUserID;
+            ViewData["name"] = User.Identity.Name;
+            return View(await applicationDbContext.ToListAsync());
         }
 
         private bool ProposalExists(int id)

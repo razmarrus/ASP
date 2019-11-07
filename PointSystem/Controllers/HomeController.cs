@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -20,6 +21,13 @@ namespace PointSystem.Controllers
 
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated) { 
+                ClaimsPrincipal currentUser = this.User;
+                var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                ViewData["Id"] = currentUserID;
+            }
+            else
+                ViewData["Id"] = "qwe";
             return View();
         }
 

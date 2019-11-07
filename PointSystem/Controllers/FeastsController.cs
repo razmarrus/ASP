@@ -44,6 +44,8 @@ namespace PointSystem.Controllers
         }
 
         // GET: Feasts/Create
+
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
         public IActionResult Create()
         {
             return View();
@@ -66,6 +68,8 @@ namespace PointSystem.Controllers
         }
 
         // GET: Feasts/Edit/5
+
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -117,6 +121,8 @@ namespace PointSystem.Controllers
         }
 
         // GET: Feasts/Delete/5
+
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
