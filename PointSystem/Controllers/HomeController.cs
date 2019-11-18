@@ -21,6 +21,7 @@ namespace PointSystem.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("user visited home page");
             if (User.Identity.IsAuthenticated) { 
                 ClaimsPrincipal currentUser = this.User;
                 var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;

@@ -115,7 +115,7 @@ namespace PointSystem.Controllers
                 ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id", proposal.AspNetUserId);
                 return View(proposal);
             }
-            else return NotFound();
+            else return Redirect("~/Error/ErrorNoPower");
         }
 
         // POST: Proposals/Edit/5
@@ -232,7 +232,7 @@ namespace PointSystem.Controllers
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
             if (proposal.AspNetUserId == currentUserID)
                 return View(proposal);
-            else return NotFound();
+            else return Redirect("~/Error/ErrorNoPower");
 
         }
 

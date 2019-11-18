@@ -22,6 +22,7 @@ namespace PointSystem.Controllers
         // GET: Feasts
         public async Task<IActionResult> Index()
         {
+
             return View(await _context.Feasts.ToListAsync());
         }
 

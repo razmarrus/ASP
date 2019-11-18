@@ -1,0 +1,6 @@
+﻿body {
+    background-image: url('giphy.gif');
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    background-position: left bottom;
+}

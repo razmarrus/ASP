@@ -1,0 +1,6 @@
+﻿body {
+    background-image: url('who-are-you.png');
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    background-position: left top;
+}

@@ -8,6 +8,7 @@ using PointSystem.Models;
  
 namespace PointSystem.Controllers
 {
+
     public class RolesController : Controller
     {
         RoleManager<IdentityRole> _roleManager;
@@ -17,6 +18,8 @@ namespace PointSystem.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
+
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "admin")]
         public IActionResult Index() => View(_roleManager.Roles.ToList());
 
 

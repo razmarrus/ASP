@@ -59,7 +59,7 @@ namespace PointSystem.Controllers
                 //ViewData["Topic"] = new SelectList(_context.Feasts, "Topic", "Topic");
                 return View();
             }
-            else return NotFound();
+            else return Unauthorized();
         }
 
         // POST: RegistrationFeasts/Create
@@ -167,7 +167,7 @@ namespace PointSystem.Controllers
                 ViewData["FeastId"] = new SelectList(_context.Feasts, "id", "id", registrationFeast.FeastId);
                 return View(registrationFeast);
             }
-            else return NotFound();
+            else return Redirect("~/Error/ErrorNoPower");
         }
 
         // POST: RegistrationFeasts/Edit/5
@@ -229,7 +229,7 @@ namespace PointSystem.Controllers
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
             if (registrationFeast.AspNetUserId == currentUserID)
                 return View(registrationFeast);
-            else return NotFound();
+            else return Redirect("~/Error/ErrorNoPower");
         }
 
         // POST: RegistrationFeasts/Delete/5

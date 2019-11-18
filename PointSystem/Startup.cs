@@ -13,6 +13,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PointSystem.Models;
+using Microsoft.Extensions.Configuration;
+using IHostingEnvironment = Microsoft.Extensions.Hosting.IHostingEnvironment;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace PointSystem
 {
@@ -20,8 +24,10 @@ namespace PointSystem
     {
         public Startup(IConfiguration configuration)
         {
+
             Configuration = configuration;
         }
+
 
         public IConfiguration Configuration { get; }
 
@@ -44,12 +50,12 @@ namespace PointSystem
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)//,  ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                app.UseDatabaseErrorPage();   //?
             }
             else
             {
@@ -57,6 +63,8 @@ namespace PointSystem
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseStatusCodePagesWithRedirects("/Error/{0}");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -65,6 +73,21 @@ namespace PointSystem
             app.UseAuthentication();
             app.UseAuthorization();
 
+            /*app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
+            });*/
+
+            var loggerFactory = LoggerFactory.Create(builder =>
+            {
+                builder.AddDebug();
+            });
+            ILogger logger = loggerFactory.CreateLogger<Startup>();
+            logger.LogInformation("Requested Path: aaaaaaaaaaaaaaa");
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -72,6 +95,37 @@ namespace PointSystem
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            /*app.Run(async (context) =>
+            {
+                logger.LogInformation("Requested Path: {0}", context.Request.Path);
+                await context.Response.WriteAsync("Hello World!");
+            });*/
+
+            /*app.Run(async (context) =>
+            {
+                // пишем на консоль информацию
+                // logger.LogInformation("Processing request {0}", context.Request.Path);
+                //или так
+                //logger.LogInformation($"Processing request {context.Request.Path}");
+                logger.LogCritical("LogCritical {0}", context.Request.Path);
+                //logger.LogDebug("LogDebug {0}", context.Request.Path);
+                //logger.LogError("LogError {0}", context.Request.Path);
+                //logger.LogInformation("LogInformation {0}", context.Request.Path);
+                logger.LogWarning("LogWarning {0}", context.Request.Path);
+
+
+                //await context.Response.WriteAsync("Hello World!");
+            });*/
+
+            /*
+            var color = Configuration["Conf:color"];
+            var text = Configuration["Conf:text"];
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync($"<p style='color:{color};'>{text}</p>");
+            });*/
         }
+    
     }
 }
