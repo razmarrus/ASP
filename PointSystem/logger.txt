@@ -1,0 +1,283 @@
+Request starting HTTP/2 GET https://localhost:5001/  
+Executing endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
+Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller PointSystem.Controllers.HomeController (PointSystem).
+user visited home page
+Executing ViewResult, running view Index.
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+Executed ViewResult - view Index executed in 332.83750000000003ms.
+Executed action PointSystem.Controllers.HomeController.Index (PointSystem) in 374.6259ms
+Executed endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
+Request finished in 735.0582ms 200 text/html; charset=utf-8
+Request starting HTTP/2 GET https://localhost:5001/Proposals  
+Executing endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
+Route matched with {action = "Index", controller = "Proposals", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.ProposalsController (PointSystem).
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[id], [p].[AspNetUserId], [p].[Content], [p].[EndTime], [p].[MaxPeople], [p].[Point], [p].[StartTime], [p].[Status], [p].[Topic], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Proposals] AS [p]
+LEFT JOIN [AspNetUsers] AS [a] ON [p].[AspNetUserId] = [a].[Id]
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 225.4857ms.
+Executed action PointSystem.Controllers.ProposalsController.Index (PointSystem) in 517.7932000000001ms
+Executed endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
+Request finished in 646.0159ms 200 text/html; charset=utf-8
+Request starting HTTP/2 GET https://localhost:5001/  
+Executing endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
+Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller PointSystem.Controllers.HomeController (PointSystem).
+user visited home page
+Executing ViewResult, running view Index.
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+Executed ViewResult - view Index executed in 337.69120000000004ms.
+Executed action PointSystem.Controllers.HomeController.Index (PointSystem) in 387.3213ms
+Executed endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
+Request finished in 825.1617ms 200 text/html; charset=utf-8
+Request starting HTTP/2 GET https://localhost:5001/Proposals  
+Executing endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
+Route matched with {action = "Index", controller = "Proposals", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.ProposalsController (PointSystem).
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[id], [p].[AspNetUserId], [p].[Content], [p].[EndTime], [p].[MaxPeople], [p].[Point], [p].[StartTime], [p].[Status], [p].[Topic], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Proposals] AS [p]
+LEFT JOIN [AspNetUsers] AS [a] ON [p].[AspNetUserId] = [a].[Id]
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 235.2089ms.
+Executed action PointSystem.Controllers.ProposalsController.Index (PointSystem) in 513.9507ms
+Executed endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
+Request finished in 628.7793ms 200 text/html; charset=utf-8
+Request starting HTTP/2 GET https://localhost:5001/  
+Executing endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
+Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller PointSystem.Controllers.HomeController (PointSystem).
+user visited home page
+Executing ViewResult, running view Index.
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+Executed ViewResult - view Index executed in 141.3749ms.
+Executed action PointSystem.Controllers.HomeController.Index (PointSystem) in 174.7431ms
+Executed endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
+Request finished in 265.1616ms 200 text/html; charset=utf-8
+Request starting HTTP/2 GET https://localhost:5001/  
+Executing endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
+Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller PointSystem.Controllers.HomeController (PointSystem).
+user visited home page
+Executing ViewResult, running view Index.
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+Executed ViewResult - view Index executed in 331.8138ms.
+Executed action PointSystem.Controllers.HomeController.Index (PointSystem) in 390.62190000000004ms
+Executed endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
+Request finished in 760.0739ms 200 text/html; charset=utf-8
+Request starting HTTP/2 GET https://localhost:5001/Proposals  
+Executing endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
+Route matched with {action = "Index", controller = "Proposals", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.ProposalsController (PointSystem).
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[id], [p].[AspNetUserId], [p].[Content], [p].[EndTime], [p].[MaxPeople], [p].[Point], [p].[StartTime], [p].[Status], [p].[Topic], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Proposals] AS [p]
+LEFT JOIN [AspNetUsers] AS [a] ON [p].[AspNetUserId] = [a].[Id]
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 243.0206ms.
+Executed action PointSystem.Controllers.ProposalsController.Index (PointSystem) in 532.7418ms
+Executed endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
+Request finished in 657.2518ms 200 text/html; charset=utf-8
+Request starting HTTP/2 GET https://localhost:5001/Feasts  
+Executing endpoint 'PointSystem.Controllers.FeastsController.Index (PointSystem)'
+Route matched with {action = "Index", controller = "Feasts", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.FeastsController (PointSystem).
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [f].[id], [f].[Content], [f].[EndTime], [f].[Location], [f].[StartTime], [f].[Topic]
+FROM [Feasts] AS [f]
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 137.079ms.
+Executed action PointSystem.Controllers.FeastsController.Index (PointSystem) in 288.0043ms
+Executed endpoint 'PointSystem.Controllers.FeastsController.Index (PointSystem)'
+Request finished in 382.0787ms 200 text/html; charset=utf-8
+Request starting HTTP/2 GET https://localhost:5001/RegistrationFeasts  
+Executing endpoint 'PointSystem.Controllers.RegistrationFeastsController.Index (PointSystem)'
+Route matched with {action = "Index", controller = "RegistrationFeasts", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.RegistrationFeastsController (PointSystem).
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[id], [r].[AspNetUserId], [r].[Content], [r].[EndTime], [r].[FeastId], [r].[Point], [r].[StartTime], [r].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [f].[id], [f].[Content], [f].[EndTime], [f].[Location], [f].[StartTime], [f].[Topic]
+FROM [RegistrationFeasts] AS [r]
+LEFT JOIN [AspNetUsers] AS [a] ON [r].[AspNetUserId] = [a].[Id]
+INNER JOIN [Feasts] AS [f] ON [r].[FeastId] = [f].[id]
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 253.96480000000003ms.
+Executed action PointSystem.Controllers.RegistrationFeastsController.Index (PointSystem) in 442.9884ms
+Executed endpoint 'PointSystem.Controllers.RegistrationFeastsController.Index (PointSystem)'
+Request finished in 568.3076ms 200 text/html; charset=utf-8
+Request starting HTTP/2 GET https://localhost:5001/Proposals  
+Executing endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
+Route matched with {action = "Index", controller = "Proposals", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.ProposalsController (PointSystem).
+Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[id], [p].[AspNetUserId], [p].[Content], [p].[EndTime], [p].[MaxPeople], [p].[Point], [p].[StartTime], [p].[Status], [p].[Topic], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [Proposals] AS [p]
+LEFT JOIN [AspNetUsers] AS [a] ON [p].[AspNetUserId] = [a].[Id]
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 261.46610000000004ms.
+Executed action PointSystem.Controllers.ProposalsController.Index (PointSystem) in 373.4404ms
+Executed endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
+Request finished in 460.29060000000004ms 200 text/html; charset=utf-8
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.

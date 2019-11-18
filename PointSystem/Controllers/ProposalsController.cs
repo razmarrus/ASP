@@ -115,7 +115,7 @@ namespace PointSystem.Controllers
                 ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id", proposal.AspNetUserId);
                 return View(proposal);
             }
-            else return Redirect("~/Error/ErrorNoPower");
+            else return NotFound();
         }
 
         // POST: Proposals/Edit/5

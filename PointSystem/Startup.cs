@@ -17,6 +17,8 @@ using Microsoft.Extensions.Configuration;
 using IHostingEnvironment = Microsoft.Extensions.Hosting.IHostingEnvironment;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using System.IO;
+using PointSystem.Logger;
 
 namespace PointSystem
 {
@@ -40,17 +42,18 @@ namespace PointSystem
             //services.AddDefaultIdentity<AspNetUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-
+            //services.AddTransient<IEmailSender, YourEmailSender>();
+            //services.AddTransient<IEmailSender, YourSmsSender>();
             services.AddIdentity<AspNetUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+                //.AddDefaultTokenProviders();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)//,  ILogger<Startup> logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)//,  ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
@@ -73,6 +76,9 @@ namespace PointSystem
             app.UseAuthentication();
             app.UseAuthorization();
 
+            loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
+            var logger = loggerFactory.CreateLogger("FileLogger");
+
             /*app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -81,12 +87,12 @@ namespace PointSystem
                 endpoints.MapRazorPages();
             });*/
 
-            var loggerFactory = LoggerFactory.Create(builder =>
+            /*var loggerFactory = LoggerFactory.Create(builder =>
             {
                 builder.AddDebug();
             });
             ILogger logger = loggerFactory.CreateLogger<Startup>();
-            logger.LogInformation("Requested Path: aaaaaaaaaaaaaaa");
+            logger.LogInformation("Requested Path: aaaaaaaaaaaaaaa");*/
 
             app.UseEndpoints(endpoints =>
             {
@@ -96,35 +102,6 @@ namespace PointSystem
                 endpoints.MapRazorPages();
             });
 
-            /*app.Run(async (context) =>
-            {
-                logger.LogInformation("Requested Path: {0}", context.Request.Path);
-                await context.Response.WriteAsync("Hello World!");
-            });*/
-
-            /*app.Run(async (context) =>
-            {
-                // пишем на консоль информацию
-                // logger.LogInformation("Processing request {0}", context.Request.Path);
-                //или так
-                //logger.LogInformation($"Processing request {context.Request.Path}");
-                logger.LogCritical("LogCritical {0}", context.Request.Path);
-                //logger.LogDebug("LogDebug {0}", context.Request.Path);
-                //logger.LogError("LogError {0}", context.Request.Path);
-                //logger.LogInformation("LogInformation {0}", context.Request.Path);
-                logger.LogWarning("LogWarning {0}", context.Request.Path);
-
-
-                //await context.Response.WriteAsync("Hello World!");
-            });*/
-
-            /*
-            var color = Configuration["Conf:color"];
-            var text = Configuration["Conf:text"];
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync($"<p style='color:{color};'>{text}</p>");
-            });*/
         }
     
     }
