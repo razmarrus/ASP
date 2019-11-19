@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.UI.Services;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
@@ -16,11 +16,11 @@ namespace PointSystem.Areas.Identity.Pages.Account
         private readonly UserManager<AspNetUser> _userManager;
         //private readonly IEmailSender _sender;
 
-        /*public RegisterConfirmationModel(UserManager<AspNetUser> userManager, IEmailSender sender)
+        public RegisterConfirmationModel(UserManager<AspNetUser> userManager)//, IEmailSender sender)
         {
             _userManager = userManager;
-            _sender = sender;
-        }*/
+            //_sender = sender;
+        }
 
         public string Email { get; set; }
 

@@ -80,8 +80,31 @@ namespace PointSystem.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    var callbackUrl = Url.Action(
+                        "ConfirmEmail",
+                        "Account",
+                        new { userId = user.Id, code = code },
+                        protocol: HttpContext.Request.Scheme);
+                    EmailService emailService = new EmailService();
+                    await emailService.SendEmailAsync(Input.Email, "Confirm your account", $"Подтвердите регистрацию, перейдя по ссылке: <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>link</a>");
+
+                    //if (_userManager.Options.SignIn.RequireConfirmedAccount)
+                    //{
+                        //return RedirectToPage("RegisterConfirmation", new { email = Input.Email });
+                    //}
+                    /*else
+                    {
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return LocalRedirect(returnUrl);
+                    }*/
+                    return Content("Для завершения регистрации проверьте электронную почту и перейдите по ссылке, указанной в письме");
+                }
+                else
+                {
+
+                    /*var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
@@ -101,10 +124,11 @@ namespace PointSystem.Areas.Identity.Pages.Account
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);
                     }
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                }*/
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
                 }
             }
 
@@ -112,4 +136,6 @@ namespace PointSystem.Areas.Identity.Pages.Account
             return Page();
         }
     }
+
+
 }

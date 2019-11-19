@@ -45,8 +45,8 @@ namespace PointSystem
             //services.AddTransient<IEmailSender, YourEmailSender>();
             //services.AddTransient<IEmailSender, YourSmsSender>();
             services.AddIdentity<AspNetUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-                //.AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

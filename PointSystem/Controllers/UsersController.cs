@@ -19,11 +19,13 @@ namespace PointSystem.Controllers
     public class UsersController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly SignInManager<AspNetUser> _signInManager;
         UserManager<AspNetUser> _userManager;
 
-        public UsersController(ApplicationDbContext context)
+        public UsersController(ApplicationDbContext context, SignInManager<AspNetUser> signInManager)
         {
             _context = context;
+            _signInManager = signInManager;
         }
 
         // GET: Users

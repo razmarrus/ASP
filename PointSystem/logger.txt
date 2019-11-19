@@ -281,3 +281,31 @@ An unhandled exception has occurred while executing the request.
 An unhandled exception has occurred while executing the request.
 An unhandled exception has occurred while executing the request.
 An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+User 337ea53d-5e39-462f-90ef-9d3d2737c5a4 validation failed: DuplicateUserName.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+Application startup exception
+User bedad381-6004-4062-93a1-fbf1012286b3 validation failed: DuplicateUserName.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+User e40fd2d1-99fe-43d0-b2dd-837afac91f9c validation failed: DuplicateUserName.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+User a54cc97d-aa09-4ec6-b97b-ac41ef3d2312 validation failed: DuplicateUserName.
+An unhandled exception has occurred while executing the request.
+VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user bc4fc9a2-bf60-4868-8674-14265efba461.
+VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user 991bea88-612e-4a4e-9569-9c254edef206.
+An unhandled exception has occurred while executing the request.
+VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user 991bea88-612e-4a4e-9569-9c254edef206.
+An unhandled exception has occurred while executing the request.
+VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user c20c61d8-77b8-4982-b33a-9d45231233b3.
+VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user c20c61d8-77b8-4982-b33a-9d45231233b3.
