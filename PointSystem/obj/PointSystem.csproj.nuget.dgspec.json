@@ -41,6 +41,18 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "HangFire.AspNetCore": {
+              "target": "Package",
+              "version": "[1.7.7, )"
+            },
+            "HangFire.Core": {
+              "target": "Package",
+              "version": "[1.7.7, )"
+            },
+            "HangFire.SqlServer": {
+              "target": "Package",
+              "version": "[1.7.7, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[2.4.1, )"
@@ -48,6 +60,10 @@
             "Microsoft.AspNetCore": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",

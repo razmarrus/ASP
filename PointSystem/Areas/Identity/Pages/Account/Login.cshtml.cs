@@ -21,6 +21,7 @@ namespace PointSystem.Areas.Identity.Pages.Account
         private readonly UserManager<AspNetUser> _userManager;
         private readonly SignInManager<AspNetUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        //public string ReturnUrl { get; set; }
         //private readonly IEmailSender _emailSender;
 
         public LoginModel(SignInManager<AspNetUser> signInManager, 

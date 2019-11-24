@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using PointSystem.Models;
+using Hangfire;
 
 namespace PointSystem
 {
@@ -15,6 +16,8 @@ namespace PointSystem
         {
             //BuildWebHost(args).Run();
             var host = BuildWebHost(args);
+
+
 
             using (var scope = host.Services.CreateScope())
             {
@@ -32,11 +35,14 @@ namespace PointSystem
                 }
             }
 
+            //GlobalConfiguration.Configuration.UseSqlServerStorage(@"Server=.\SQLEXPRESS; Database=Hangfire.Sample; Integrated Security=True");
+
             host.Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args).UseStartup<Startup>().Build();
+
 
 
     }

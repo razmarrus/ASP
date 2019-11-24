@@ -24,8 +24,12 @@
     ".NETCoreApp,Version=v3.0": {
       "PointSystem/1.0.0": {
         "dependencies": {
+          "Hangfire.AspNetCore": "1.7.7",
+          "Hangfire.Core": "1.7.7",
+          "Hangfire.SqlServer": "1.7.7",
           "MailKit": "2.4.1",
           "Microsoft.AspNetCore": "2.2.0",
+          "Microsoft.AspNetCore.Authentication.Google": "3.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.0.0",
           "Microsoft.AspNetCore.Identity.UI": "3.0.0",
@@ -33,7 +37,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "3.0.0",
           "Microsoft.Extensions.Logging.Debug": "3.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.0.0",
-          "Microsoft.AspNetCore.Antiforgery": "3.0.0.0",
+          "Microsoft.AspNetCore.Antiforgery.Reference": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Core.Reference": "3.0.0.0",
@@ -51,8 +55,8 @@
           "Microsoft.AspNetCore.Cors": "3.0.0.0",
           "Microsoft.AspNetCore.Cryptography.Internal.Reference": "3.0.0.0",
           "Microsoft.AspNetCore.Cryptography.KeyDerivation.Reference": "3.0.0.0",
-          "Microsoft.AspNetCore.DataProtection.Abstractions": "3.0.0.0",
-          "Microsoft.AspNetCore.DataProtection": "3.0.0.0",
+          "Microsoft.AspNetCore.DataProtection.Abstractions.Reference": "3.0.0.0",
+          "Microsoft.AspNetCore.DataProtection.Reference": "3.0.0.0",
           "Microsoft.AspNetCore.DataProtection.Extensions": "3.0.0.0",
           "Microsoft.AspNetCore.Diagnostics.Abstractions.Reference": "3.0.0.0",
           "Microsoft.AspNetCore.Diagnostics.Reference": "3.0.0.0",
@@ -274,7 +278,7 @@
           "System.Security.Cryptography.Encoding.Reference": "4.1.1.0",
           "System.Security.Cryptography.Primitives.Reference": "4.1.1.0",
           "System.Security.Cryptography.X509Certificates.Reference": "4.2.1.0",
-          "System.Security.Cryptography.Xml": "4.0.2.0",
+          "System.Security.Cryptography.Xml.Reference": "4.0.2.0",
           "System.Security": "4.0.0.0",
           "System.Security.Permissions.Reference": "4.0.2.0",
           "System.Security.Principal.Reference": "4.1.1.0",
@@ -323,6 +327,71 @@
           "PointSystem.dll": {}
         }
       },
+      "Hangfire.AspNetCore/1.7.7": {
+        "dependencies": {
+          "Hangfire.Core": "1.7.7",
+          "Microsoft.AspNetCore.Antiforgery": "2.0.0",
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "3.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Hangfire.AspNetCore.dll": {
+            "assemblyVersion": "1.7.7.0",
+            "fileVersion": "1.7.7.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Hangfire.AspNetCore.dll": {}
+        }
+      },
+      "Hangfire.Core/1.7.7": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Hangfire.Core.dll": {
+            "assemblyVersion": "1.7.7.0",
+            "fileVersion": "1.7.7.0"
+          }
+        },
+        "resources": {
+          "lib/netstandard2.0/es/Hangfire.Core.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard2.0/nl/Hangfire.Core.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/netstandard2.0/pt-BR/Hangfire.Core.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netstandard2.0/zh-TW/Hangfire.Core.resources.dll": {
+            "locale": "zh-TW"
+          },
+          "lib/netstandard2.0/zh/Hangfire.Core.resources.dll": {
+            "locale": "zh"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Hangfire.Core.dll": {}
+        }
+      },
+      "Hangfire.SqlServer/1.7.7": {
+        "dependencies": {
+          "Hangfire.Core": "1.7.7",
+          "System.Data.SqlClient": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Hangfire.SqlServer.dll": {
+            "assemblyVersion": "1.7.7.0",
+            "fileVersion": "1.7.7.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Hangfire.SqlServer.dll": {}
+        }
+      },
       "MailKit/2.4.1": {
         "dependencies": {
           "MimeKit": "2.4.1",
@@ -362,6 +431,15 @@
           "Microsoft.Extensions.Logging.EventSource": "2.2.0"
         }
       },
+      "Microsoft.AspNetCore.Antiforgery/2.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.DataProtection": "2.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
+          "Microsoft.AspNetCore.WebUtilities": "2.2.0",
+          "Microsoft.Extensions.ObjectPool": "2.2.0"
+        }
+      },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -376,6 +454,17 @@
           "Microsoft.AspNetCore.Http.Extensions": "2.2.0"
         }
       },
+      "Microsoft.AspNetCore.Authentication.Google/3.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46502"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Connections.Abstractions/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "2.2.0",
@@ -388,6 +477,19 @@
           "Microsoft.AspNetCore.Cryptography.Internal": "3.0.0"
         }
       },
+      "Microsoft.AspNetCore.DataProtection/2.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.Internal": "3.0.0",
+          "Microsoft.AspNetCore.DataProtection.Abstractions": "2.0.0",
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Options": "3.0.0",
+          "Microsoft.Win32.Registry": "4.5.0",
+          "System.Security.Cryptography.Xml": "4.4.0"
+        }
+      },
+      "Microsoft.AspNetCore.DataProtection.Abstractions/2.0.0": {},
       "Microsoft.AspNetCore.Diagnostics/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Diagnostics.Abstractions": "2.2.0",
@@ -1773,6 +1875,37 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "System.Data.SqlClient/4.4.0": {
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.5.0",
+          "System.Security.Principal.Windows": "4.5.0",
+          "System.Text.Encoding.CodePages": "4.5.1",
+          "runtime.native.System.Data.SqlClient.sni": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Data.SqlClient.dll": {
+            "assemblyVersion": "4.2.0.0",
+            "fileVersion": "4.6.25519.3"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard2.0/System.Data.SqlClient.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "4.2.0.0",
+            "fileVersion": "4.6.25519.3"
+          },
+          "runtimes/win/lib/netstandard2.0/System.Data.SqlClient.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.2.0.0",
+            "fileVersion": "4.6.25519.3"
+          }
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Data.SqlClient.dll": {}
+        }
+      },
       "System.Diagnostics.Debug/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.2",
@@ -2355,6 +2488,7 @@
           "runtime.native.System.Security.Cryptography.OpenSsl": "4.3.2"
         }
       },
+      "System.Security.Cryptography.Xml/4.4.0": {},
       "System.Security.Permissions/4.5.0": {
         "dependencies": {
           "System.Security.AccessControl": "4.5.0"
@@ -2506,7 +2640,7 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
-      "Microsoft.AspNetCore.Antiforgery/3.0.0.0": {
+      "Microsoft.AspNetCore.Antiforgery.Reference/3.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Antiforgery.dll": {}
         },
@@ -2614,13 +2748,13 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.DataProtection.Abstractions/3.0.0.0": {
+      "Microsoft.AspNetCore.DataProtection.Abstractions.Reference/3.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.DataProtection.Abstractions.dll": {}
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.DataProtection/3.0.0.0": {
+      "Microsoft.AspNetCore.DataProtection.Reference/3.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.DataProtection.dll": {}
         },
@@ -3952,7 +4086,7 @@
         },
         "compileOnly": true
       },
-      "System.Security.Cryptography.Xml/4.0.2.0": {
+      "System.Security.Cryptography.Xml.Reference/4.0.2.0": {
         "compile": {
           "System.Security.Cryptography.Xml.dll": {}
         },
@@ -4206,6 +4340,27 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Hangfire.AspNetCore/1.7.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z8XAB2X6sghme09kMeKwcyo7AOt9JeS6beaPITFKs5luRZ6Ouje9MifCSUeg9+Bu772C5amI0lv6Od1rIk5ojQ==",
+      "path": "hangfire.aspnetcore/1.7.7",
+      "hashPath": "hangfire.aspnetcore.1.7.7.nupkg.sha512"
+    },
+    "Hangfire.Core/1.7.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jV/2bmwaPqQwOKJnZsaen/G1tQdmbkJl5HkFYVAZIf/JFRRXaIFkRHAiGaZUvaRja4EvCrtLxCwggdBeTGz3xQ==",
+      "path": "hangfire.core/1.7.7",
+      "hashPath": "hangfire.core.1.7.7.nupkg.sha512"
+    },
+    "Hangfire.SqlServer/1.7.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2Nyn9VYCcNc8JObHO8/1ox3JxTes+0yVxB2GP9XADowKdqE07lTBCFdt+Cr2pDpWwFCubO7NqLG/oIvrXGDGKA==",
+      "path": "hangfire.sqlserver/1.7.7",
+      "hashPath": "hangfire.sqlserver.1.7.7.nupkg.sha512"
+    },
     "MailKit/2.4.1": {
       "type": "package",
       "serviceable": true,
@@ -4220,6 +4375,13 @@
       "path": "microsoft.aspnetcore/2.2.0",
       "hashPath": "microsoft.aspnetcore.2.2.0.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Antiforgery/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BFdjKs38tu7UEHhe1eyZ340+oVfusWhtYGGrOKB/JmjAO8nfaF3NrT6oGUVyXGaZzWxTsdJr9BhsEEN/GoQxkQ==",
+      "path": "microsoft.aspnetcore.antiforgery/2.0.0",
+      "hashPath": "microsoft.aspnetcore.antiforgery.2.0.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -4233,6 +4395,13 @@
       "sha512": "sha512-XlVJzJ5wPOYW+Y0J6Q/LVTEyfS4ssLXmt60T0SPP+D8abVhBTl+cgw2gDHlyKYIkcJg7btMVh383NDkMVqD/fg==",
       "path": "microsoft.aspnetcore.authentication.core/2.2.0",
       "hashPath": "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-u35Ht7mTTGiEbrU6MuzxnNjuLmkSB9+oOYIoDmS2w7tgU9w8JZVnpE08eJl3+hP8SShrVuKc4Eoup75bPs29cQ==",
+      "path": "microsoft.aspnetcore.authentication.google/3.0.0",
+      "hashPath": "microsoft.aspnetcore.authentication.google.3.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Connections.Abstractions/2.2.0": {
       "type": "package",
@@ -4254,6 +4423,20 @@
       "sha512": "sha512-TXOkNSIzeGT7yTAQMuu9iXlFXfAFv1wS0fYMkQ0HUC3BBuJUeZwW/0lNVara9BMjepFbvNt0Wr+M7Ja59HGBEA==",
       "path": "microsoft.aspnetcore.cryptography.keyderivation/3.0.0",
       "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.DataProtection/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CjRLA26BpKrzBqpw1g9F3rGYNGisPd+zsnYdpJbHsjH4iIbi/OHfgKzGdHZCwmfQWrlL4e8Q0SpS+DMvgf6Jpg==",
+      "path": "microsoft.aspnetcore.dataprotection/2.0.0",
+      "hashPath": "microsoft.aspnetcore.dataprotection.2.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.DataProtection.Abstractions/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BiFPWLZTKw253oQ5lAXcCkFkNFSRNi8fDCUB2yOTQyuYVMR8pnBAhVJ37o/E6bnuFYrE6eFCU4iDYrShmBIBYA==",
+      "path": "microsoft.aspnetcore.dataprotection.abstractions/2.0.0",
+      "hashPath": "microsoft.aspnetcore.dataprotection.abstractions.2.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Diagnostics/2.2.0": {
       "type": "package",
@@ -5179,6 +5362,13 @@
       "path": "system.data.common/4.3.0",
       "hashPath": "system.data.common.4.3.0.nupkg.sha512"
     },
+    "System.Data.SqlClient/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fxb9ghn1k1Ua7FFdlvtiBOD4/PsQvD/fk2KnhS+FK7VC6OggEx6P+lP1P0+KMb5V2dqS1+FbR7HCenoqzJMNIA==",
+      "path": "system.data.sqlclient/4.4.0",
+      "hashPath": "system.data.sqlclient.4.4.0.nupkg.sha512"
+    },
     "System.Diagnostics.Debug/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -5557,6 +5747,13 @@
       "path": "system.security.cryptography.x509certificates/4.3.0",
       "hashPath": "system.security.cryptography.x509certificates.4.3.0.nupkg.sha512"
     },
+    "System.Security.Cryptography.Xml/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1Xubvo4i+K+DO6YzVh6vBKmCl5xx/cAoiJEze6VQ+XwVQU25KQC9pPrmniz2EbbJnmoQ5Rm2FFjHsfQAi0Rs+Q==",
+      "path": "system.security.cryptography.xml/4.4.0",
+      "hashPath": "system.security.cryptography.xml.4.4.0.nupkg.sha512"
+    },
     "System.Security.Permissions/4.5.0": {
       "type": "package",
       "serviceable": true,
@@ -5683,7 +5880,7 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Antiforgery/3.0.0.0": {
+    "Microsoft.AspNetCore.Antiforgery.Reference/3.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -5773,12 +5970,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.DataProtection.Abstractions/3.0.0.0": {
+    "Microsoft.AspNetCore.DataProtection.Abstractions.Reference/3.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.DataProtection/3.0.0.0": {
+    "Microsoft.AspNetCore.DataProtection.Reference/3.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6888,7 +7085,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Security.Cryptography.Xml/4.0.2.0": {
+    "System.Security.Cryptography.Xml.Reference/4.0.2.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

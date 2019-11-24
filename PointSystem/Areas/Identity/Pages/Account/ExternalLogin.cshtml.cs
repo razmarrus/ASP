@@ -22,7 +22,7 @@ namespace PointSystem.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<AspNetUser> _signInManager;
         private readonly UserManager<AspNetUser> _userManager;
-        //private readonly IEmailSender _emailSender;
+        private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
 
         public ExternalLoginModel(

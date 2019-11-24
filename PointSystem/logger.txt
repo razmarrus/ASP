@@ -309,3 +309,8 @@ VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user 991bea88-
 An unhandled exception has occurred while executing the request.
 VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user c20c61d8-77b8-4982-b33a-9d45231233b3.
 VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user c20c61d8-77b8-4982-b33a-9d45231233b3.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+Invalid password for user 0bffe9be-e9fe-4e1a-b542-aafd28ad9014.
+User 0bffe9be-e9fe-4e1a-b542-aafd28ad9014 failed to provide the correct password.
+Application startup exception

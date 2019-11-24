@@ -19,6 +19,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.IO;
 using PointSystem.Logger;
+using Hangfire;
+using Hangfire.SqlServer;
 
 namespace PointSystem
 {
@@ -39,21 +41,53 @@ namespace PointSystem
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            //services.AddDefaultIdentity<AspNetUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            //services.AddTransient<IEmailSender, YourEmailSender>();
-            //services.AddTransient<IEmailSender, YourSmsSender>();
             services.AddIdentity<AspNetUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    IConfigurationSection googleAuthNSection =
+                        Configuration.GetSection("Authentication:Google");
+
+                    options.ClientId = "1001229070108-84fph60cb6av8dvsimlk70jaei7cb36v.apps.googleusercontent.com";
+                    options.ClientSecret = "XUbK3B-AK7YrsrHONPfcS4ZG";  
+                });
+
+            // Add Hangfire services.
+            //services.AddHangfire(configuration => {configuration
+            //    .UseSqlServerStorage("Server=(LocalBD)\\MSSQLLocalBD"
+            //                                                       });
+            services.AddHangfire(configuration => configuration
+                .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                .UseSimpleAssemblyNameTypeSerializer()
+                .UseRecommendedSerializerSettings()
+                .UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection"), new SqlServerStorageOptions
+                {
+                    CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+                    SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+                    QueuePollInterval = TimeSpan.Zero,
+                    UseRecommendedIsolationLevel = true,
+                    UsePageLocksOnDequeue = true,
+                    DisableGlobalLocks = true
+                }));
+
+            // Add the processing server as IHostedService
+            services.AddHangfireServer();
+
+
+            //services.AddHangfire(Configuration =>)
         }
 
+
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)//,  ILogger<Startup> logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, IBackgroundJobClient backgroundJobs)//,  ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
@@ -78,6 +112,10 @@ namespace PointSystem
 
             loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
             var logger = loggerFactory.CreateLogger("FileLogger");
+
+
+            app.UseHangfireDashboard();
+            backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
 
             /*app.UseEndpoints(endpoints =>
             {
