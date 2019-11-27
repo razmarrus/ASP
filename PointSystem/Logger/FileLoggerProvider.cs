@@ -13,13 +13,13 @@ namespace PointSystem.Logger
             {
                 path = _path;
             }
-            public ILogger CreateLogger(string categoryName)
-            {
+            public ILogger CreateLogger(string categoryName)  //провайдер логгирования
+        {
                 return new FileLogger(path);
             }
 
-            public void Dispose()
-            {
+            public void Dispose()  //ограничения
+        {
             }
         
     }

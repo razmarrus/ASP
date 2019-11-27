@@ -1,3 +1,48 @@
+Starting Hangfire Server using job storage: 'SQL Server: (localdb)\mssqllocaldb@DataBase'
+Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+Execution loop BackgroundServerProcess:4c74d043 has started in 11,458 ms
+Server desktop-mpl10nb:404:1d1678c5 successfully announced in 59,365 ms
+Execution loop ServerHeartbeatProcess:7ec27877 has started in 28,0757 ms
+Server desktop-mpl10nb:404:1d1678c5 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+Execution loop ServerWatchdog:280890e4 has started in 5,851100000000001 ms
+Execution loop ServerJobCancellationWatcher:a2ea5a86 has started in 9,9387 ms
+Execution loop ExpirationManager:27d2b644 has started in 18,1946 ms
+Execution loop CountersAggregator:efa8f7f7 has started in 8,4746 ms
+Execution loop Worker:8660487e has started in 15,709700000000002 ms
+1 servers were removed due to timeout
+Removing outdated records from the 'AggregatedCounter' table...
+Aggregating records in 'Counter' table...
+Execution loop Worker:26e42d71 has started in 20,3673 ms
+Execution loop Worker:9a6f0c83 has started in 28,730700000000002 ms
+Execution loop Worker:f6ed7355 has started in 28,6993 ms
+Execution loop Worker:a4b90e5f has started in 33,823 ms
+Execution loop Worker:b6ac50be has started in 42,566700000000004 ms
+Execution loop Worker:5c9c5f9a has started in 49,1068 ms
+Execution loop Worker:0b653d57 has started in 49,397000000000006 ms
+Execution loop Worker:3899996e has started in 59,5441 ms
+Server desktop-mpl10nb:404:1d1678c5 all the dispatchers started
+Execution loop Worker:c6f0c1a6 has started in 58,6608 ms
+Removing outdated records from the 'Job' table...
+Execution loop Worker:a884c8f6 has started in 64,0558 ms
+Execution loop Worker:2a3f4291 has started in 71,77550000000001 ms
+Execution loop Worker:26f70a09 has started in 82,486 ms
+Execution loop Worker:6a2bb5ff has started in 89,41290000000001 ms
+Execution loop Worker:8f509e56 has started in 94,4582 ms
+Execution loop Worker:963c7658 has started in 101,4252 ms
+Execution loop Worker:03188a4e has started in 109,1567 ms
+Execution loop Worker:461173e3 has started in 114,23400000000001 ms
+Execution loop Worker:8641b87f has started in 122,61640000000001 ms
+Execution loop Worker:d6bc7aab has started in 128,3931 ms
+Execution loop DelayedJobScheduler:b06025a6 has started in 15,9518 ms
+Execution loop RecurringJobScheduler:fb3a4cbf has started in 13,6547 ms
+Removing outdated records from the 'List' table...
+Removing outdated records from the 'Set' table...
+Removing outdated records from the 'Hash' table...
 Request starting HTTP/2 GET https://localhost:5001/  
 Executing endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
 Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller PointSystem.Controllers.HomeController (PointSystem).
@@ -20,10 +65,14 @@ IF EXISTS
     )
 )
 SELECT 1 ELSE SELECT 0
-Executed ViewResult - view Index executed in 332.83750000000003ms.
-Executed action PointSystem.Controllers.HomeController.Index (PointSystem) in 374.6259ms
+Executed ViewResult - view Index executed in 387.6411ms.
+Executed action PointSystem.Controllers.HomeController.Index (PointSystem) in 436.7781ms
 Executed endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
-Request finished in 735.0582ms 200 text/html; charset=utf-8
+Request finished in 1109.8773ms 200 text/html; charset=utf-8
+Request starting HTTP/2 GET https://localhost:5001/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\wwwroot\favicon.ico'
+Request finished in 50.5148ms 200 image/x-icon
+Server desktop-mpl10nb:404:1d1678c5 heartbeat successfully sent
 Request starting HTTP/2 GET https://localhost:5001/Proposals  
 Executing endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
 Route matched with {action = "Index", controller = "Proposals", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.ProposalsController (PointSystem).
@@ -49,146 +98,10 @@ SELECT [p].[id], [p].[AspNetUserId], [p].[Content], [p].[EndTime], [p].[MaxPeopl
 FROM [Proposals] AS [p]
 LEFT JOIN [AspNetUsers] AS [a] ON [p].[AspNetUserId] = [a].[Id]
 Executing ViewResult, running view Index.
-Executed ViewResult - view Index executed in 225.4857ms.
-Executed action PointSystem.Controllers.ProposalsController.Index (PointSystem) in 517.7932000000001ms
+Executed ViewResult - view Index executed in 295.1419ms.
+Executed action PointSystem.Controllers.ProposalsController.Index (PointSystem) in 565.7180000000001ms
 Executed endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
-Request finished in 646.0159ms 200 text/html; charset=utf-8
-Request starting HTTP/2 GET https://localhost:5001/  
-Executing endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
-Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller PointSystem.Controllers.HomeController (PointSystem).
-user visited home page
-Executing ViewResult, running view Index.
-Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
-Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
-
-IF EXISTS
-    (SELECT *
-     FROM [sys].[objects] o
-     WHERE [o].[type] = 'U'
-     AND [o].[is_ms_shipped] = 0
-     AND NOT EXISTS (SELECT *
-         FROM [sys].[extended_properties] AS [ep]
-         WHERE [ep].[major_id] = [o].[object_id]
-             AND [ep].[minor_id] = 0
-             AND [ep].[class] = 1
-             AND [ep].[name] = N'microsoft_database_tools_support'
-    )
-)
-SELECT 1 ELSE SELECT 0
-Executed ViewResult - view Index executed in 337.69120000000004ms.
-Executed action PointSystem.Controllers.HomeController.Index (PointSystem) in 387.3213ms
-Executed endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
-Request finished in 825.1617ms 200 text/html; charset=utf-8
-Request starting HTTP/2 GET https://localhost:5001/Proposals  
-Executing endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
-Route matched with {action = "Index", controller = "Proposals", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.ProposalsController (PointSystem).
-Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
-Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
-
-IF EXISTS
-    (SELECT *
-     FROM [sys].[objects] o
-     WHERE [o].[type] = 'U'
-     AND [o].[is_ms_shipped] = 0
-     AND NOT EXISTS (SELECT *
-         FROM [sys].[extended_properties] AS [ep]
-         WHERE [ep].[major_id] = [o].[object_id]
-             AND [ep].[minor_id] = 0
-             AND [ep].[class] = 1
-             AND [ep].[name] = N'microsoft_database_tools_support'
-    )
-)
-SELECT 1 ELSE SELECT 0
-Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT [p].[id], [p].[AspNetUserId], [p].[Content], [p].[EndTime], [p].[MaxPeople], [p].[Point], [p].[StartTime], [p].[Status], [p].[Topic], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
-FROM [Proposals] AS [p]
-LEFT JOIN [AspNetUsers] AS [a] ON [p].[AspNetUserId] = [a].[Id]
-Executing ViewResult, running view Index.
-Executed ViewResult - view Index executed in 235.2089ms.
-Executed action PointSystem.Controllers.ProposalsController.Index (PointSystem) in 513.9507ms
-Executed endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
-Request finished in 628.7793ms 200 text/html; charset=utf-8
-Request starting HTTP/2 GET https://localhost:5001/  
-Executing endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
-Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller PointSystem.Controllers.HomeController (PointSystem).
-user visited home page
-Executing ViewResult, running view Index.
-Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
-Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
-
-IF EXISTS
-    (SELECT *
-     FROM [sys].[objects] o
-     WHERE [o].[type] = 'U'
-     AND [o].[is_ms_shipped] = 0
-     AND NOT EXISTS (SELECT *
-         FROM [sys].[extended_properties] AS [ep]
-         WHERE [ep].[major_id] = [o].[object_id]
-             AND [ep].[minor_id] = 0
-             AND [ep].[class] = 1
-             AND [ep].[name] = N'microsoft_database_tools_support'
-    )
-)
-SELECT 1 ELSE SELECT 0
-Executed ViewResult - view Index executed in 141.3749ms.
-Executed action PointSystem.Controllers.HomeController.Index (PointSystem) in 174.7431ms
-Executed endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
-Request finished in 265.1616ms 200 text/html; charset=utf-8
-Request starting HTTP/2 GET https://localhost:5001/  
-Executing endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
-Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller PointSystem.Controllers.HomeController (PointSystem).
-user visited home page
-Executing ViewResult, running view Index.
-Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
-Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
-
-IF EXISTS
-    (SELECT *
-     FROM [sys].[objects] o
-     WHERE [o].[type] = 'U'
-     AND [o].[is_ms_shipped] = 0
-     AND NOT EXISTS (SELECT *
-         FROM [sys].[extended_properties] AS [ep]
-         WHERE [ep].[major_id] = [o].[object_id]
-             AND [ep].[minor_id] = 0
-             AND [ep].[class] = 1
-             AND [ep].[name] = N'microsoft_database_tools_support'
-    )
-)
-SELECT 1 ELSE SELECT 0
-Executed ViewResult - view Index executed in 331.8138ms.
-Executed action PointSystem.Controllers.HomeController.Index (PointSystem) in 390.62190000000004ms
-Executed endpoint 'PointSystem.Controllers.HomeController.Index (PointSystem)'
-Request finished in 760.0739ms 200 text/html; charset=utf-8
-Request starting HTTP/2 GET https://localhost:5001/Proposals  
-Executing endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
-Route matched with {action = "Index", controller = "Proposals", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.ProposalsController (PointSystem).
-Entity Framework Core 3.0.0 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
-Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
-
-IF EXISTS
-    (SELECT *
-     FROM [sys].[objects] o
-     WHERE [o].[type] = 'U'
-     AND [o].[is_ms_shipped] = 0
-     AND NOT EXISTS (SELECT *
-         FROM [sys].[extended_properties] AS [ep]
-         WHERE [ep].[major_id] = [o].[object_id]
-             AND [ep].[minor_id] = 0
-             AND [ep].[class] = 1
-             AND [ep].[name] = N'microsoft_database_tools_support'
-    )
-)
-SELECT 1 ELSE SELECT 0
-Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT [p].[id], [p].[AspNetUserId], [p].[Content], [p].[EndTime], [p].[MaxPeople], [p].[Point], [p].[StartTime], [p].[Status], [p].[Topic], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
-FROM [Proposals] AS [p]
-LEFT JOIN [AspNetUsers] AS [a] ON [p].[AspNetUserId] = [a].[Id]
-Executing ViewResult, running view Index.
-Executed ViewResult - view Index executed in 243.0206ms.
-Executed action PointSystem.Controllers.ProposalsController.Index (PointSystem) in 532.7418ms
-Executed endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
-Request finished in 657.2518ms 200 text/html; charset=utf-8
+Request finished in 690.8754ms 200 text/html; charset=utf-8
 Request starting HTTP/2 GET https://localhost:5001/Feasts  
 Executing endpoint 'PointSystem.Controllers.FeastsController.Index (PointSystem)'
 Route matched with {action = "Index", controller = "Feasts", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.FeastsController (PointSystem).
@@ -213,10 +126,10 @@ Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT [f].[id], [f].[Content], [f].[EndTime], [f].[Location], [f].[StartTime], [f].[Topic]
 FROM [Feasts] AS [f]
 Executing ViewResult, running view Index.
-Executed ViewResult - view Index executed in 137.079ms.
-Executed action PointSystem.Controllers.FeastsController.Index (PointSystem) in 288.0043ms
+Executed ViewResult - view Index executed in 138.89610000000002ms.
+Executed action PointSystem.Controllers.FeastsController.Index (PointSystem) in 278.1018ms
 Executed endpoint 'PointSystem.Controllers.FeastsController.Index (PointSystem)'
-Request finished in 382.0787ms 200 text/html; charset=utf-8
+Request finished in 419.3388ms 200 text/html; charset=utf-8
 Request starting HTTP/2 GET https://localhost:5001/RegistrationFeasts  
 Executing endpoint 'PointSystem.Controllers.RegistrationFeastsController.Index (PointSystem)'
 Route matched with {action = "Index", controller = "RegistrationFeasts", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.RegistrationFeastsController (PointSystem).
@@ -243,10 +156,10 @@ FROM [RegistrationFeasts] AS [r]
 LEFT JOIN [AspNetUsers] AS [a] ON [r].[AspNetUserId] = [a].[Id]
 INNER JOIN [Feasts] AS [f] ON [r].[FeastId] = [f].[id]
 Executing ViewResult, running view Index.
-Executed ViewResult - view Index executed in 253.96480000000003ms.
-Executed action PointSystem.Controllers.RegistrationFeastsController.Index (PointSystem) in 442.9884ms
+Executed ViewResult - view Index executed in 355.3311ms.
+Executed action PointSystem.Controllers.RegistrationFeastsController.Index (PointSystem) in 615.6664000000001ms
 Executed endpoint 'PointSystem.Controllers.RegistrationFeastsController.Index (PointSystem)'
-Request finished in 568.3076ms 200 text/html; charset=utf-8
+Request finished in 739.3327ms 200 text/html; charset=utf-8
 Request starting HTTP/2 GET https://localhost:5001/Proposals  
 Executing endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
 Route matched with {action = "Index", controller = "Proposals", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller PointSystem.Controllers.ProposalsController (PointSystem).
@@ -272,45 +185,67 @@ SELECT [p].[id], [p].[AspNetUserId], [p].[Content], [p].[EndTime], [p].[MaxPeopl
 FROM [Proposals] AS [p]
 LEFT JOIN [AspNetUsers] AS [a] ON [p].[AspNetUserId] = [a].[Id]
 Executing ViewResult, running view Index.
-Executed ViewResult - view Index executed in 261.46610000000004ms.
-Executed action PointSystem.Controllers.ProposalsController.Index (PointSystem) in 373.4404ms
+Executed ViewResult - view Index executed in 381.2341ms.
+Executed action PointSystem.Controllers.ProposalsController.Index (PointSystem) in 515.6991ms
 Executed endpoint 'PointSystem.Controllers.ProposalsController.Index (PointSystem)'
-Request finished in 460.29060000000004ms 200 text/html; charset=utf-8
+Request finished in 655.4354000000001ms 200 text/html; charset=utf-8
+An unhandled exception has occurred while executing the request.
+Invalid password for user e3844a99-5059-4f16-a392-d1cc1a9c12d4.
+User e3844a99-5059-4f16-a392-d1cc1a9c12d4 failed to provide the correct password.
+Failed executing DbCommand (18ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[id], [t].[AspNetUserId], [t].[Content], [t].[EndTime], [t].[MaxPeople], [t].[Point], [t].[StartTime], [t].[Status], [t].[Topic], [t].[Id0], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [c].[Id], [c].[AspNetUserId], [c].[Date], [c].[ProposalId], [c].[Text], [c].[UserName]
+FROM (
+    SELECT TOP(1) [p].[id], [p].[AspNetUserId], [p].[Content], [p].[EndTime], [p].[MaxPeople], [p].[Point], [p].[StartTime], [p].[Status], [p].[Topic], [a].[Id] AS [Id0], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [Proposals] AS [p]
+    LEFT JOIN [AspNetUsers] AS [a] ON [p].[AspNetUserId] = [a].[Id]
+    WHERE ([p].[id] = @__id_0) AND @__id_0 IS NOT NULL
+) AS [t]
+LEFT JOIN [Commentaries] AS [c] ON [t].[id] = [c].[ProposalId]
+ORDER BY [t].[id], [c].[Id]
+An exception occurred while iterating over the results of a query for context type 'PointSystem.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Commentaries'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:ca800e82-565b-4e9c-b1de-6e3bc70b5afb
+Error Number:208,State:1,Class:16
+Failed executing DbCommand (15ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[id], [t].[AspNetUserId], [t].[Content], [t].[EndTime], [t].[MaxPeople], [t].[Point], [t].[StartTime], [t].[Status], [t].[Topic], [t].[Id0], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [c].[Id], [c].[AspNetUserId], [c].[Date], [c].[ProposalId], [c].[Text], [c].[UserName]
+FROM (
+    SELECT TOP(1) [p].[id], [p].[AspNetUserId], [p].[Content], [p].[EndTime], [p].[MaxPeople], [p].[Point], [p].[StartTime], [p].[Status], [p].[Topic], [a].[Id] AS [Id0], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [Proposals] AS [p]
+    LEFT JOIN [AspNetUsers] AS [a] ON [p].[AspNetUserId] = [a].[Id]
+    WHERE ([p].[id] = @__id_0) AND @__id_0 IS NOT NULL
+) AS [t]
+LEFT JOIN [Commentaries] AS [c] ON [t].[id] = [c].[ProposalId]
+ORDER BY [t].[id], [c].[Id]
+An exception occurred while iterating over the results of a query for context type 'PointSystem.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Commentaries'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:45fe1ab2-8177-4a66-b0b1-75f5be2f5b1c
+Error Number:208,State:1,Class:16
 An unhandled exception has occurred while executing the request.
 An unhandled exception has occurred while executing the request.
 An unhandled exception has occurred while executing the request.
 An unhandled exception has occurred while executing the request.
 An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-User 337ea53d-5e39-462f-90ef-9d3d2737c5a4 validation failed: DuplicateUserName.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-Application startup exception
-User bedad381-6004-4062-93a1-fbf1012286b3 validation failed: DuplicateUserName.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-User e40fd2d1-99fe-43d0-b2dd-837afac91f9c validation failed: DuplicateUserName.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-User a54cc97d-aa09-4ec6-b97b-ac41ef3d2312 validation failed: DuplicateUserName.
-An unhandled exception has occurred while executing the request.
-VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user bc4fc9a2-bf60-4868-8674-14265efba461.
-VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user 991bea88-612e-4a4e-9569-9c254edef206.
-An unhandled exception has occurred while executing the request.
-VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user 991bea88-612e-4a4e-9569-9c254edef206.
-An unhandled exception has occurred while executing the request.
-VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user c20c61d8-77b8-4982-b33a-9d45231233b3.
-VerifyUserTokenAsync() failed with purpose: EmailConfirmation for user c20c61d8-77b8-4982-b33a-9d45231233b3.
-An unhandled exception has occurred while executing the request.
-An unhandled exception has occurred while executing the request.
-Invalid password for user 0bffe9be-e9fe-4e1a-b542-aafd28ad9014.
-User 0bffe9be-e9fe-4e1a-b542-aafd28ad9014 failed to provide the correct password.
-Application startup exception

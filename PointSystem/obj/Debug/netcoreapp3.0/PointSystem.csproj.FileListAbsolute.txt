@@ -222,3 +222,5 @@ C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\bin\De
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\PointSystem.MvcApplicationPartsAssemblyInfo.cs
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\PointSystem.MvcApplicationPartsAssemblyInfo.cache
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\bin\Debug\netcoreapp3.0\Hangfire.AspNetCore.dll
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\bin\Debug\netcoreapp3.0\libman.json
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Proposals\_Commentaries.cshtml.g.cs

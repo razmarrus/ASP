@@ -15,7 +15,7 @@ namespace PointSystem.Logger
         {
             filePath = path;
         }
-        public IDisposable BeginScope<TState>(TState state)
+        public IDisposable BeginScope<TState>(TState state)  //область видимости
         {
             return null;
         }
@@ -27,6 +27,7 @@ namespace PointSystem.Logger
                 return true;
             else 
                 return false;
+            //return true;
         }
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)

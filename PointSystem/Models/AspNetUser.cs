@@ -11,6 +11,8 @@ namespace PointSystem.Models
         public ICollection<Proposal> Proposals { get; set; }
         public ICollection<RegistrationFeast> RegistrationFeasts { get; set; }
 
+        public ICollection<Commentary> Comments { get; set; }
+
         //private Task<AspNetUser> GetCurrentUserAsync() => AspNetUserManager.GetUserAsync(HttpContext.User);
     }
 }

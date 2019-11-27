@@ -26,6 +26,8 @@ namespace PointSystem.Models
         public string AspNetUserId { get; set; }
         public AspNetUser AspNetUser { get; set; }
 
+        public ICollection<Commentary> Comments { get; set; }
+
 
     }
 }

@@ -10,8 +10,8 @@ using PointSystem.Data;
 namespace PointSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191010122905_qwe")]
-    partial class qwe
+    [Migration("20191127151858_humanmigration2")]
+    partial class humanmigration2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -99,12 +99,10 @@ namespace PointSystem.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -141,12 +139,10 @@ namespace PointSystem.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -221,6 +217,64 @@ namespace PointSystem.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("PointSystem.Models.Commentary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AspNetUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProposalId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AspNetUserId");
+
+                    b.HasIndex("ProposalId");
+
+                    b.ToTable("Commentaries");
+                });
+
+            modelBuilder.Entity("PointSystem.Models.Feast", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Topic")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Feasts");
+                });
+
             modelBuilder.Entity("PointSystem.Models.Proposal", b =>
                 {
                     b.Property<int>("id")
@@ -257,6 +311,43 @@ namespace PointSystem.Data.Migrations
                     b.HasIndex("AspNetUserId");
 
                     b.ToTable("Proposals");
+                });
+
+            modelBuilder.Entity("PointSystem.Models.RegistrationFeast", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AspNetUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FeastId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Point")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("AspNetUserId");
+
+                    b.HasIndex("FeastId");
+
+                    b.ToTable("RegistrationFeasts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -310,11 +401,37 @@ namespace PointSystem.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PointSystem.Models.Commentary", b =>
+                {
+                    b.HasOne("PointSystem.Models.AspNetUser", "AspNetUser")
+                        .WithMany("Comments")
+                        .HasForeignKey("AspNetUserId");
+
+                    b.HasOne("PointSystem.Models.Proposal", "Proposal")
+                        .WithMany("Comments")
+                        .HasForeignKey("ProposalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("PointSystem.Models.Proposal", b =>
                 {
                     b.HasOne("PointSystem.Models.AspNetUser", "AspNetUser")
                         .WithMany("Proposals")
                         .HasForeignKey("AspNetUserId");
+                });
+
+            modelBuilder.Entity("PointSystem.Models.RegistrationFeast", b =>
+                {
+                    b.HasOne("PointSystem.Models.AspNetUser", "AspNetUser")
+                        .WithMany("RegistrationFeasts")
+                        .HasForeignKey("AspNetUserId");
+
+                    b.HasOne("PointSystem.Models.Feast", "Feast")
+                        .WithMany("RegistrationFeasts")
+                        .HasForeignKey("FeastId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -13,7 +13,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PointSystem.Models;
-using Microsoft.Extensions.Configuration;
 using IHostingEnvironment = Microsoft.Extensions.Hosting.IHostingEnvironment;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -21,6 +20,8 @@ using System.IO;
 using PointSystem.Logger;
 using Hangfire;
 using Hangfire.SqlServer;
+
+using PointSystem.Hubs;
 
 namespace PointSystem
 {
@@ -48,6 +49,7 @@ namespace PointSystem
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSignalR();
 
             services.AddAuthentication()
                 .AddGoogle(options =>
@@ -55,8 +57,8 @@ namespace PointSystem
                     IConfigurationSection googleAuthNSection =
                         Configuration.GetSection("Authentication:Google");
 
-                    options.ClientId = "1001229070108-84fph60cb6av8dvsimlk70jaei7cb36v.apps.googleusercontent.com";
-                    options.ClientSecret = "XUbK3B-AK7YrsrHONPfcS4ZG";  
+                    options.ClientId = Configuration.GetConnectionString("ClientId");//"1001229070108-84fph60cb6av8dvsimlk70jaei7cb36v.apps.googleusercontent.com";
+                    options.ClientSecret = Configuration.GetConnectionString("ClientSecret");//"XUbK3B-AK7YrsrHONPfcS4ZG";  
                 });
 
             // Add Hangfire services.
@@ -138,6 +140,7 @@ namespace PointSystem
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<ChatHub>("/chatHub");
             });
 
         }

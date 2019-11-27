@@ -215,6 +215,37 @@ namespace PointSystem.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("PointSystem.Models.Commentary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AspNetUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProposalId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AspNetUserId");
+
+                    b.HasIndex("ProposalId");
+
+                    b.ToTable("Commentaries");
+                });
+
             modelBuilder.Entity("PointSystem.Models.Feast", b =>
                 {
                     b.Property<int>("id")
@@ -364,6 +395,19 @@ namespace PointSystem.Data.Migrations
                     b.HasOne("PointSystem.Models.AspNetUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PointSystem.Models.Commentary", b =>
+                {
+                    b.HasOne("PointSystem.Models.AspNetUser", "AspNetUser")
+                        .WithMany("Comments")
+                        .HasForeignKey("AspNetUserId");
+
+                    b.HasOne("PointSystem.Models.Proposal", "Proposal")
+                        .WithMany("Comments")
+                        .HasForeignKey("ProposalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

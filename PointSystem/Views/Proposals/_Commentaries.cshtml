@@ -1,0 +1,21 @@
+﻿@model PointSystem.Models.Proposal
+
+<div id="commentdiv" />
+
+@foreach (var commentary in Model.Comments.Reverse())
+{
+
+    <div class="card text">
+        <div class="card-header">
+            <b>@commentary.UserName</b> commented at @commentary.Date
+        </div>
+        <div class="card-body">
+            <a>@commentary.Text</a>
+        </div>
+    </div>
+    <hr />
+
+}
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>

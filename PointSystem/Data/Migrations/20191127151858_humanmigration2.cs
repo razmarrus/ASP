@@ -2,7 +2,7 @@
 
 namespace PointSystem.Data.Migrations
 {
-    public partial class asd : Migration
+    public partial class humanmigration2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

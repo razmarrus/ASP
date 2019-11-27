@@ -50,6 +50,7 @@ namespace PointSystem.Controllers
 
             var proposal = await _context.Proposals
                 .Include(p => p.AspNetUser)
+                .Include(a => a.Comments)
                 .FirstOrDefaultAsync(m => m.id == id);
 
             if (proposal == null)
@@ -57,6 +58,22 @@ namespace PointSystem.Controllers
                 return NotFound();
             }
 
+            return View(proposal);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Details(int id, string NewCommentary, string UserName)
+        {
+            var proposal = _context.Proposals
+                .Include(p => p.AspNetUser)
+                .Include(a => a.Comments)
+                .FirstOrDefault(a => a.id == id);
+
+ 
+
+            //AddCommentary(project, NewCommentary, UserName);
+            //_context.Projects.Update(project);
+            //await _context.SaveChangesAsync();
             return View(proposal);
         }
 
