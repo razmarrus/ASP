@@ -22,6 +22,7 @@ using Hangfire;
 using Hangfire.SqlServer;
 
 using PointSystem.Hubs;
+using PointSystem.Services;
 
 namespace PointSystem
 {
@@ -43,7 +44,9 @@ namespace PointSystem
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
+
             services.Configure<EmailService>(Configuration.GetSection("ApplicationSettings"));
+            services.AddTransient<TimeService>();                                                    //TimeSevice
 
             services.AddIdentity<AspNetUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -106,6 +109,8 @@ namespace PointSystem
             }
             app.UseStatusCodePagesWithRedirects("/Error/{0}");
 
+            app.UseMiddleware<TimerMiddleware>();                 //Time Service
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -130,6 +135,9 @@ namespace PointSystem
                 endpoints.MapRazorPages();
                 endpoints.MapHub<ChatHub>("/chatHub");
             });
+            TimeService timeService = new TimeService();
+            RecurringJob.AddOrUpdate<BackgroundEmail>("some-id", x => x.DataComparation(timeService), Cron.Hourly);
+            //BackgroundJob.Enqueue<EmailService>(x => x.SendEmailAsync(proposal.AspNetUser.Email, "Somebudy send comment", commentary.Text));
 
         }
     

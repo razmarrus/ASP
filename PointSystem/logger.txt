@@ -259,3 +259,20 @@ Failed to invoke hub method 'SendMessage'.
 Failed to invoke hub method 'SendMessage'.
 Failed to invoke hub method 'SendMessage'.
 An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+Failed to process the job '47': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:32.
+Failed to process the job '47': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:20.
+Failed to process the job '49': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:28.
+Failed to process the job '49': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:44.
+Failed to process the job '50': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:43.
+Failed to process the job '49': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:34.
+Failed to process the job '55': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:44.
+Failed to process the job '57': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:23.
+An unhandled exception has occurred while executing the request.
+Failed to process the job '64': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:38.
+Failed to process the job '64': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:34.
+Failed to process the job '64': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:04.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.

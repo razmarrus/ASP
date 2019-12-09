@@ -62,7 +62,7 @@ namespace PointSystem.Hubs
 
             //BackgroundJob.Enqueue(() => Console.WriteLine("start 1 sending a message!"));
             
-            BackgroundJob.Enqueue<EmailService>(x => x.SendEmailAsync(proposal.AspNetUser.Email, "Somebudy send comment", commentary.Text));
+            BackgroundJob.Enqueue<EmailService>(x => x.SendEmailAsync(proposal.AspNetUser.Email, "Somebudy send comment", $"Another user send: {commentary.Text} \n on your proposal which starts {proposal.StartTime}"));
 
 
         }
