@@ -43,6 +43,8 @@ namespace PointSystem
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
+            services.Configure<EmailService>(Configuration.GetSection("ApplicationSettings"));
+
             services.AddIdentity<AspNetUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -57,8 +59,8 @@ namespace PointSystem
                     IConfigurationSection googleAuthNSection =
                         Configuration.GetSection("Authentication:Google");
 
-                    options.ClientId = Configuration.GetConnectionString("ClientId");//"1001229070108-84fph60cb6av8dvsimlk70jaei7cb36v.apps.googleusercontent.com";
-                    options.ClientSecret = Configuration.GetConnectionString("ClientSecret");//"XUbK3B-AK7YrsrHONPfcS4ZG";  
+                    options.ClientId = Configuration.GetConnectionString("ClientId");   //"1001229070108-84fph60cb6av8dvsimlk70jaei7cb36v.apps.googleusercontent.com";
+                    options.ClientSecret = Configuration.GetConnectionString("ClientSecret");   //"XUbK3B-AK7YrsrHONPfcS4ZG";  
                 });
 
             // Add Hangfire services.
@@ -117,22 +119,8 @@ namespace PointSystem
 
 
             app.UseHangfireDashboard();
-            backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
+            //backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
 
-            /*app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
-            });*/
-
-            /*var loggerFactory = LoggerFactory.Create(builder =>
-            {
-                builder.AddDebug();
-            });
-            ILogger logger = loggerFactory.CreateLogger<Startup>();
-            logger.LogInformation("Requested Path: aaaaaaaaaaaaaaa");*/
 
             app.UseEndpoints(endpoints =>
             {

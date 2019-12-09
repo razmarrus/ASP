@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Hangfire;
+using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using PointSystem.Data;
 using PointSystem.Models;
 using System;
@@ -27,9 +30,7 @@ namespace PointSystem.Hubs
                 .Include(a => a.Comments)
                 .FirstOrDefault(a => a.id == id);
 
-            AddCommentary(proposal, message, user);
-
-
+            AddCommentaryAsync(proposal, message, user);
 
 
             //context.Projects.Update(project);
@@ -40,7 +41,7 @@ namespace PointSystem.Hubs
 
         }
 
-        public void AddCommentary(Proposal proposal, string NewCommentary, string UserName)
+        public async Task AddCommentaryAsync(Proposal proposal, string NewCommentary, string UserName)
         {
             Commentary commentary = new Commentary
             {
@@ -57,6 +58,14 @@ namespace PointSystem.Hubs
             commentary.AspNetUserId = AspNetUser.Id;
 
             proposal.Comments.Add(commentary);
+            EmailService emailService = new EmailService();
+
+            //BackgroundJob.Enqueue(() => Console.WriteLine("start 1 sending a message!"));
+            
+            BackgroundJob.Enqueue<EmailService>(x => x.SendEmailAsync(proposal.AspNetUser.Email, "Somebudy send comment", commentary.Text));
+
+
         }
+
     }
 }
