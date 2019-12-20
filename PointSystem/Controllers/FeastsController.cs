@@ -40,7 +40,7 @@ namespace PointSystem.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["Url"] = feast.RediarectUrl;
             return View(feast);
         }
 
@@ -57,7 +57,7 @@ namespace PointSystem.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,StartTime,EndTime,Topic,Content,Location")] Feast feast)
+        public async Task<IActionResult> Create([Bind("id,StartTime,EndTime,Topic,Content,Location,RediarectUrl")] Feast feast)
         {
             if (ModelState.IsValid)
             {

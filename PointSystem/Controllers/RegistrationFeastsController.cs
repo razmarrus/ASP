@@ -8,13 +8,17 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PointSystem.Data;
 using PointSystem.Models;
+using Microsoft.AspNetCore.Rewrite;
+using System.Net;
+using System.Text;
+using System.IO;
 
 namespace PointSystem.Controllers
 {
     public class RegistrationFeastsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        private Feast CurrentFeast = null;
         public RegistrationFeastsController(ApplicationDbContext context)
         {
             _context = context;
@@ -53,6 +57,17 @@ namespace PointSystem.Controllers
         {
             if (User.Identity.IsAuthenticated) //UnauthorizedResult
             {
+                var FeastDbContext = _context.Feasts;
+                foreach (Feast bufferFeast in FeastDbContext)
+                {
+                    if (bufferFeast.id == id)
+                    {
+                        ViewData["Url"] = bufferFeast.RediarectUrl;
+                        CurrentFeast = bufferFeast;
+                        break;
+                    }
+                }
+
                 ViewBag.Fid = id;
                 ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id");
                 ViewData["FeastId"] = new SelectList(_context.Feasts, "id", "id");
@@ -82,6 +97,23 @@ namespace PointSystem.Controllers
             }
             ViewData["AspNetUserId"] = new SelectList(_context.AspNetUsers, "Id", "Id", registrationFeast.AspNetUserId);
             ViewData["FeastId"] = new SelectList(_context.Feasts, "id", "id", registrationFeast.FeastId);
+            if(CurrentFeast.RediarectUrl != null)
+            {
+                string messege = "\"Feast.Content\": \"" + CurrentFeast.Content + "\",\n\"User\": \"" + registrationFeast.AspNetUser + "\",\n\"Content\": \"" + registrationFeast.Content + "\",\n\"StartTime\": \"" + registrationFeast.StartTime + "\",\n\"EndTime\": \"" + registrationFeast.EndTime + "\",\n\"Point\": \"" + registrationFeast.Point;
+                HttpWebRequest request = null;
+                Uri uri = new Uri(CurrentFeast.RediarectUrl);
+                UTF8Encoding encoding = new UTF8Encoding();
+                byte[] bytes = encoding.GetBytes(messege);
+                request = (HttpWebRequest)WebRequest.Create(uri);
+                request.Method = "POST";
+                request.ContentType = "application/json";//"application/x-www-form-urlencoded";
+                request.ContentLength = bytes.Length;
+                request.UseDefaultCredentials = true;
+                using (Stream writeStream = request.GetRequestStream())
+                {
+                    writeStream.Write(bytes, 0, bytes.Length);
+                }
+            }
             return View(registrationFeast);
         }
 

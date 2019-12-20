@@ -30,6 +30,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Location)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RediarectUrl)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -51,15 +54,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.RediarectUrl)
+            </th>
             <td>
                 <!--<a asp-action="Edit" asp-route-id="@item.id">Edit</a> |-->
                 <a asp-action="Details" asp-route-id="@item.id">Details</a>
                 @if (ViewContext.HttpContext.User.IsInRole("admin"))
-                { 
-                <a asp-action="Delete" asp-route-id="@item.id"> | Delete</a>
+                {
+                    <a asp-action="Delete" asp-route-id="@item.id"> | Delete</a>
                 }
-                @if (User.Identity.IsAuthenticated) { 
-                <a href="~/RegistrationFeasts/Create?id=@item.id">| Subscribe</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="~/RegistrationFeasts/Create?id=@item.id">| Subscribe</a>
                 }
             </td>
         </tr>

@@ -25,10 +25,10 @@ namespace PointSystem.Controllers
 
         private Task<AspNetUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
-        public ProposalsController(ApplicationDbContext context, UserManager<AspNetUser> manager)
+        public ProposalsController(ApplicationDbContext context) //, UserManager<AspNetUser> manager)
         {
             _context = context;
-            _userManager = manager;
+            //_userManager = manager;
         }
 
         

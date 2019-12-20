@@ -276,3 +276,26 @@ Failed to process the job '64': an exception occurred. Retry attempt 2 of 10 wil
 Failed to process the job '64': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:04.
 An unhandled exception has occurred while executing the request.
 An unhandled exception has occurred while executing the request.
+Failed executing DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[id], [r].[AspNetUserId], [r].[Content], [r].[EndTime], [r].[FeastId], [r].[Point], [r].[StartTime], [r].[Status], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [f].[id], [f].[Content], [f].[EndTime], [f].[Location], [f].[RediarectFlag], [f].[RediarectUrl], [f].[StartTime], [f].[Topic]
+FROM [RegistrationFeasts] AS [r]
+LEFT JOIN [AspNetUsers] AS [a] ON [r].[AspNetUserId] = [a].[Id]
+INNER JOIN [Feasts] AS [f] ON [r].[FeastId] = [f].[id]
+An exception occurred while iterating over the results of a query for context type 'PointSystem.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'RediarectFlag'.
+Invalid column name 'RediarectUrl'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:67ed34c7-bda8-4fa6-b5b8-a0121b8b0a5b
+Error Number:207,State:1,Class:16
+An unhandled exception has occurred while executing the request.

@@ -262,6 +262,12 @@ namespace PointSystem.Data.Migrations
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("RediarectFlag")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("RediarectUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 

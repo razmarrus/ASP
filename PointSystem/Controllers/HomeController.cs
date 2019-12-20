@@ -14,21 +14,21 @@ namespace PointSystem.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController()//(ILogger<HomeController> logger)
         {
-            _logger = logger;
+            //_logger = logger;
         }
 
         public IActionResult Index()
         {
-            _logger.LogInformation("user visited home page");
+            //_logger.LogInformation("user visited home page");
             if (User.Identity.IsAuthenticated) { 
                 ClaimsPrincipal currentUser = this.User;
                 var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
                 ViewData["Id"] = currentUserID;
             }
             else
-                ViewData["Id"] = "qwe";
+                ViewData["Id"] = "notAuthUser";
             return View();
         }
 

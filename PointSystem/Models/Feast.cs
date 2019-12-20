@@ -13,6 +13,10 @@ namespace PointSystem.Models
 
         public DateTime EndTime { get; set; }
 
+        public bool RediarectFlag { get; set; }
+        public string RediarectUrl { get; set; }
+
+
         public string Topic { get; set; }
 
         public string Content { get; set; }

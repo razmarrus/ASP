@@ -7,6 +7,10 @@
 <h1>Create</h1>
 
 <h4>Registration on feast</h4>
+@if(ViewData["Url"] != null && ViewData["Url"] != "")
+{
+<h5>Your proposal will be rediarected to @ViewData["Url"] </h5>
+}
 <hr />
 <div class="row">
     <div class="col-md-4">

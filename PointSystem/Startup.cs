@@ -44,8 +44,11 @@ namespace PointSystem
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
+            //Configuration.GetOtherInfo("ClientId");
+
 
             services.Configure<EmailService>(Configuration.GetSection("ApplicationSettings"));
+
             services.AddTransient<TimeService>();                                                    //TimeSevice
 
             services.AddIdentity<AspNetUser, IdentityRole>()

@@ -37,6 +37,12 @@
                 <input asp-for="Location" class="form-control" />
                 <span asp-validation-for="Location" class="text-danger"></span>
             </div>
+            <!--<input  asp-for="RediarectFlag" type="checkbox" name="RediarectFlag" value="RediarectFlag"> I have a bike<br>-->
+            <div class="form-group">
+                <label asp-for="RediarectUrl" class="control-label"></label>
+                <input asp-for="RediarectUrl" class="form-control" />
+                <span asp-validation-for="RediarectUrl" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
