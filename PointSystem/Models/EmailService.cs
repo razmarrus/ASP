@@ -32,7 +32,7 @@ namespace PointSystem.Models
 
             var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "lilianna500@gmail.com"));
+            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "gmail"));
             emailMessage.To.Add(new MailboxAddress("", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
@@ -44,7 +44,7 @@ namespace PointSystem.Models
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
                 await client.ConnectAsync("smtp.gmail.com", 587, false);
-                await client.AuthenticateAsync("lilianna500@gmail.com", "e1kxF5U92LwH4eTy8");
+                await client.AuthenticateAsync("gmail", "password");
                 //ClientSecret = Configuration.GetConnectionString("ClientSecret");
                 await client.SendAsync(emailMessage);
 
