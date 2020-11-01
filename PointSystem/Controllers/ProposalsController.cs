@@ -36,7 +36,7 @@ namespace PointSystem.Controllers
         public async Task<IActionResult> Index()
         {
             //_context.Users.Where(f => f.Email =="qwe").First();
-            var applicationDbContext = _context.Proposals.Include(p => p.AspNetUser);
+            var applicationDbContext = _context.Proposals.Include(p => p.AspNetUser).Where(q => q.EndTime > DateTime.Now).OrderBy(t => t.EndTime);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -99,11 +99,27 @@ namespace PointSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id,StartTime,EndTime,Topic,Content,Point,MaxPeople,Status,AspNetUserId")] Proposal proposal)
         {
+
+            if(proposal.EndTime < proposal.StartTime)
+            {
+                ModelState.AddModelError("EndTime", "time is invalid");
+                ModelState.AddModelError("StartTime", "time is invalid");
+            }
+
+            if (proposal.EndTime < DateTime.Now)
+            {
+                ModelState.AddModelError("EndTime", "back to the future");
+            }
+
             if (ModelState.IsValid)
             {
                 ClaimsPrincipal currentUser = this.User;
                 var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
                 proposal.AspNetUserId = currentUserID;
+                
+                /*if(proposal.EndTime < DateTime.Now)
+                    return NotFound();*/
+
 
                 _context.Add(proposal);
                 await _context.SaveChangesAsync();
@@ -275,6 +291,13 @@ namespace PointSystem.Controllers
             ViewBag.Fid = currentUserID;
             ViewData["Id"] = currentUserID;
             ViewData["name"] = User.Identity.Name;
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+
+        public async Task<IActionResult> SeeAll()
+        {
+            var applicationDbContext = _context.Proposals.Include(p => p.AspNetUser);
             return View(await applicationDbContext.ToListAsync());
         }
 

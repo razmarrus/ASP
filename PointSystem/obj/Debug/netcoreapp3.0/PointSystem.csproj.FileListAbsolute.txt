@@ -236,3 +236,9 @@ C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\bin\De
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\PointSystem.MvcApplicationPartsAssemblyInfo.cs
 C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\PointSystem.MvcApplicationPartsAssemblyInfo.cache
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\bin\Debug\netcoreapp3.0\System.Drawing.Common.dll
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\bin\Debug\netcoreapp3.0\runtimes\win-x64\nativeassets\netcoreapp2.2\aspnetcorev2_inprocess.dll
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\bin\Debug\netcoreapp3.0\runtimes\win-x86\nativeassets\netcoreapp2.2\aspnetcorev2_inprocess.dll
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\PointSystem.csproj.CoreCompileInputs.cache
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\PointSystem.genruntimeconfig.cache
+C:\university\5_sem\ASP_net\Новая папка\PointSystem\PointSystem\obj\Debug\netcoreapp3.0\Razor\Views\Proposals\SeeAll.cshtml.g.cs

@@ -299,3 +299,136 @@ Invalid column name 'RediarectUrl'.
 ClientConnectionId:67ed34c7-bda8-4fa6-b5b8-a0121b8b0a5b
 Error Number:207,State:1,Class:16
 An unhandled exception has occurred while executing the request.
+User 50145f5a-54d0-461a-bcce-acef55b177bd password validation failed: PasswordRequiresNonAlphanumeric;PasswordRequiresUpper.
+User d04c24a8-0a66-4b4b-9c11-98c8bfd60fc6 password validation failed: PasswordRequiresLower;PasswordRequiresUpper.
+User e49acfd7-7951-4bb4-b2a1-df1f91fbae8a validation failed: DuplicateUserName.
+Failed to process the job '15': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:30.
+Failed to process the job '16': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:34.
+Failed to process the job '15': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:44.
+Failed to process the job '16': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:42.
+Failed to process the job '15': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:31.
+Failed to process the job '16': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:40.
+Failed to process the job '16': an exception occurred. Retry attempt 4 of 10 will be performed in 00:03:32.
+Failed to process the job '15': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:16.
+Failed to process the job '16': an exception occurred. Retry attempt 5 of 10 will be performed in 00:06:06.
+Failed to process the job '15': an exception occurred. Retry attempt 5 of 10 will be performed in 00:06:41.
+Failed to process the job '16': an exception occurred. Retry attempt 6 of 10 will be performed in 00:12:10.
+An unhandled exception has occurred while executing the request.
+User bc2e5ea0-02fb-45b3-ac42-1ec0f7402125 validation failed: DuplicateUserName.
+An unhandled exception has occurred while executing the request.
+Failed to process the job '15': an exception occurred. Retry attempt 6 of 10 will be performed in 00:11:52.
+Failed to process the job '16': an exception occurred. Retry attempt 7 of 10 will be performed in 00:24:25.
+User 36b04835-c80e-4429-aa08-7dee81647218 validation failed: DuplicateUserName.
+Failed to process the job '15': an exception occurred. Retry attempt 7 of 10 will be performed in 00:22:26.
+An unhandled exception has occurred while executing the request.
+Failed to process the job '15': an exception occurred. Retry attempt 8 of 10 will be performed in 00:41:12.
+Failed to process the job '16': an exception occurred. Retry attempt 8 of 10 will be performed in 00:43:28.
+Failed to process the job '15': an exception occurred. Retry attempt 9 of 10 will be performed in 01:09:25.
+Failed to process the job '16': an exception occurred. Retry attempt 9 of 10 will be performed in 01:08:49.
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+User c6ce8bc5-45e7-413a-8e3c-f76e25389151 password validation failed: PasswordRequiresLower;PasswordRequiresUpper.
+An unhandled exception has occurred while executing the request.
+Invalid password for user 5e511804-75b0-45db-a72f-7c6e3239bac1.
+User 5e511804-75b0-45db-a72f-7c6e3239bac1 failed to provide the correct password.
+Invalid password for user 5e511804-75b0-45db-a72f-7c6e3239bac1.
+User 5e511804-75b0-45db-a72f-7c6e3239bac1 failed to provide the correct password.
+Failed executing DbCommand (296ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetUsers]
+WHERE [Id] = @p0 AND [ConcurrencyStamp] = @p1;
+SELECT @@ROWCOUNT;
+An exception occurred in the database while saving changes for context type 'PointSystem.Data.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The DELETE statement conflicted with the REFERENCE constraint "FK_Proposals_AspNetUsers_AspNetUserId". The conflict occurred in database "DataBase", table "dbo.Proposals", column 'AspNetUserId'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:2ffff95b-9d28-4d52-8ee5-72c8910eb71b
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Failed executing DbCommand (22ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetUsers]
+WHERE [Id] = @p0 AND [ConcurrencyStamp] = @p1;
+SELECT @@ROWCOUNT;
+An exception occurred in the database while saving changes for context type 'PointSystem.Data.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The DELETE statement conflicted with the REFERENCE constraint "FK_Proposals_AspNetUsers_AspNetUserId". The conflict occurred in database "DataBase", table "dbo.Proposals", column 'AspNetUserId'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:9939ff14-7640-42a2-8797-ed7b4bdbd794
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Failed executing DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Feasts] ADD [RediarectFlag] bit NOT NULL DEFAULT CAST(0 AS bit);
+An error occurred while applying the migrations for 'PointSystem.Data.ApplicationDbContext'. See InnerException for details:
+An unhandled exception has occurred while executing the request.
+Failed executing DbCommand (161ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetUsers]
+WHERE [Id] = @p0 AND [ConcurrencyStamp] = @p1;
+SELECT @@ROWCOUNT;
+An exception occurred in the database while saving changes for context type 'PointSystem.Data.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The DELETE statement conflicted with the REFERENCE constraint "FK_Proposals_AspNetUsers_AspNetUserId". The conflict occurred in database "DataBase", table "dbo.Proposals", column 'AspNetUserId'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:9939ff14-7640-42a2-8797-ed7b4bdbd794
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+Invalid password for user 5e511804-75b0-45db-a72f-7c6e3239bac1.
+User 5e511804-75b0-45db-a72f-7c6e3239bac1 failed to provide the correct password.
+Failed to process the job '36': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:32.
+Failed to process the job '36': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:52.
+Failed to process the job '36': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:49.

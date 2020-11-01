@@ -4,13 +4,14 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>List of proposals</h1>
+<h1>List of upcoming proposals</h1>
 
 <p>
     @if (User.Identity.IsAuthenticated)
     {
         <a asp-action="Create">Create New </a>
         <a asp-action="Status">| Check status</a>
+        <a asp-action="SeeAll">| View the entire list</a>
     }
 </p>
 <table class="table">

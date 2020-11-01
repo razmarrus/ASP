@@ -44,7 +44,7 @@ namespace PointSystem.Models
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
                 await client.ConnectAsync("smtp.gmail.com", 587, false);
-                await client.AuthenticateAsync("gmail", "password");
+                await client.AuthenticateAsync("mail@gmail.com", "password");
                 //ClientSecret = Configuration.GetConnectionString("ClientSecret");
                 await client.SendAsync(emailMessage);
 

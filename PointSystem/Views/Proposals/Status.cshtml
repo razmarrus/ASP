@@ -7,7 +7,12 @@
 <h1>Status</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Create">Create New </a>
+        <a asp-action="Status">| Check status</a>
+        <a asp-action="SeeAll">| View the entire list</a>
+    }
 </p>
 <table class="table">
     <thead>
